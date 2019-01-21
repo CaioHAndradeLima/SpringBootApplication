@@ -19,10 +19,7 @@ public class Application {
 
     public void test() {
         UserModel userModel = new UserModel("nome","email","senha");
-        ArrayList a = new ArrayList<UserModel>();
+        List<UserModel> a = new ArrayList();
         a.add( userModel );
-        a.stream().forEach(o -> {
-
-        });
     }
 }
