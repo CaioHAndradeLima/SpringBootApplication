@@ -2,16 +2,15 @@ package com.mechanical.user;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.mechanical.core.BaseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-
+/*
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-@Entity
-public class User extends BaseEntity {
+public class User {
 
-    public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
+    //public static final PasswordEncoder PASSWORD_ENCODER = new BCryptPasswordEncoder();
     private String firstName;
     private String lastName;
     private String username;
@@ -23,6 +22,11 @@ public class User extends BaseEntity {
     public User() {
         super();
     }
+
+    @Id
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     public User(String firstName, String lastName, String username, String password, String[] roles) {
         this.firstName = firstName;
@@ -61,7 +65,7 @@ public class User extends BaseEntity {
     }
 
     public void setPassword(String password) {
-        this.password = PASSWORD_ENCODER.encode(password);
+        this.password = password; //PASSWORD_ENCODER.encode(password);
     }
 
     public String[] getRoles() {
@@ -73,3 +77,4 @@ public class User extends BaseEntity {
     }
 }
 
+*/

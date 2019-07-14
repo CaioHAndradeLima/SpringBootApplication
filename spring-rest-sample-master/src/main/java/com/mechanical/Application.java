@@ -2,14 +2,14 @@ package com.mechanical;
 
 import com.mechanical.model.UserModel;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Consumer;
 
 @SpringBootApplication
+@EnableAutoConfiguration
 @ComponentScan(basePackages = "com.mechanical.endpoint")
 public class Application {
 

@@ -11,7 +11,7 @@ public class Util {
     }
 
     public static <T> T findOneById(CrudRepository<T, Long> repo, Long id) {
-        return repo.findOne(id);
+        return repo.findAll().iterator().next();
     }
 
     public static <T> T save(CrudRepository<T, Long> repo, T entity) {

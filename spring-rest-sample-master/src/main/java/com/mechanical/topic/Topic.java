@@ -1,11 +1,18 @@
 package com.mechanical.topic;
 
-import com.mechanical.core.BaseEntity;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+/*
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Topic extends BaseEntity {
+public class Topic {
+    @Id
+    @JsonIgnore
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String topicName;
     private int questionCount;
@@ -36,3 +43,4 @@ public class Topic extends BaseEntity {
         this.questionCount = questionCount;
     }
 }
+*/

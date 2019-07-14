@@ -1,5 +1,5 @@
 package com.mechanical.topic;
-
+/*
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Collection;
@@ -10,3 +10,4 @@ public interface TopicRepository extends CrudRepository<Topic, Long> {
     Collection<Topic> findByTopicName(String topicName);
 
 }
+*/

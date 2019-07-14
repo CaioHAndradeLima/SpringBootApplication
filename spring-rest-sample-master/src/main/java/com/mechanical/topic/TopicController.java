@@ -1,5 +1,5 @@
 package com.mechanical.topic;
-
+/*
 import com.google.common.collect.Lists;
 import com.mechanical.core.Util;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +45,7 @@ public class TopicController {
         if (newTopic != null) {
             newTopic.setTopicName(topic.getTopicName());
             newTopic.setQuestionCount(topic.getQuestionCount());
+            /*
             if (Util.save(topicRepository, newTopic).getId().equals(topicId)) {
                 return Util.createResponseEntity("Data updated successfully", HttpStatus.OK);
             }
@@ -63,3 +64,4 @@ public class TopicController {
     }
 
 }
+*/
