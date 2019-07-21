@@ -2,38 +2,57 @@ package com.mechanical.core
 
 import com.mechanical.user.DetailsService
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
+import org.springframework.security.config.annotation.web.builders.WebSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter
-import org.springframework.security.core.userdetails.UserDetailsService
-import org.springframework.stereotype.Component
-import javax.servlet.http.HttpServletRequest
+import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter
+import javax.servlet.http.HttpServletRequest
 
-@Component
-@EnableWebSecurity(debug = true)
+
 class WebSecurityConfiguration : WebSecurityConfigurerAdapter() {
 
     @Autowired
-    internal lateinit var detailsService: DetailsService
+    internal lateinit var demoAuthenticationProvider: DetailsService
 
     @Throws(Exception::class)
     override fun configure(auth: AuthenticationManagerBuilder?) {
-        auth!!.userDetailsService<UserDetailsService>(detailsService)
+        auth?.authenticationProvider(demoAuthenticationProvider)
+    }
+
+
+    override fun configure(webSecurity: WebSecurity) {
+/*
+        webSecurity
+                .ignoring() */
+                //.antMatchers("/login/**")
+                //.antMatchers("/apilogin")
+
+
     }
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
 
+        http
+                .authorizeRequests()
+                .and()
+                .antMatcher("/user")
+                .addFilterBefore(DetailsService.DemoAuthenticationFilter(), BasicAuthenticationFilter::class.java)
+/*
         http.addFilterBefore(
                 HeaderUsernamePasswordAuthenticationFilter(),
                 UsernamePasswordAuthenticationFilter::class.java
         )
                 .authorizeRequests()
-                .antMatchers("/login", "api/login", "/index.html")
+                .antMatchers("/login", "/apilogin", "/index.html")
                 .denyAll()
-
+*/
     }
 }
 
@@ -60,4 +79,8 @@ class HeaderUsernamePasswordAuthenticationFilter : UsernamePasswordAuthenticatio
         return request.getHeader(this.passwordParameter)
     }
 
+
 }
+
+
+
