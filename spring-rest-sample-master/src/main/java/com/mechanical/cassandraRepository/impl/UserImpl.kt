@@ -35,7 +35,7 @@ class UserImpl {
         val userModel = (if (cpfOrEmail.isJustNumber()) {
             userRepository.findBycpf(cpfOrEmail)
         } else {
-            userRepository.findByEmail(cpfOrEmail)?.get(0)
+            userRepository.findByEmail(cpfOrEmail)
         }) ?: return null
 
         val addressModel = addressUserRepository.findByUuid(userModel.UUIDAddress)
@@ -43,14 +43,19 @@ class UserImpl {
         return User(userModel, addressModel)
     }
 
-    fun saveUser(user: User, isNeededAddress: Boolean = true) {
+    fun saveUser(user: User, isNeededAddress: Boolean = true) : Boolean {
         if(isNeededAddress && user.address.isNull()) throw IllegalStateException()
+
+        getAllUser(user.user.cpf)?.let { return false }
+        getAllUser(user.user.email)?.let { return false }
 
         userRepository.save(user.user)
 
         user.address?.let {
             addressUserRepository.save(it)
         }
+
+        return true
     }
 
 }

@@ -14,7 +14,7 @@ public interface UserRepository extends CassandraRepository<UserCassandraModel, 
 
     @AllowFiltering
     @Nullable
-    List<UserCassandraModel> findByEmail(String email);
+    UserCassandraModel findByEmail(String email);
 
     @AllowFiltering
     @Nullable
