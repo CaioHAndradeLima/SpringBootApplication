@@ -9,7 +9,7 @@ import org.springframework.data.cassandra.core.mapping.Table
 import java.util.*
 
 @Table
-data class UserCassandraModel(
+data class UserCassandraModel constructor(
         @PrimaryKeyColumn(name = "CPF", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
         var cpf: String,
         @PrimaryKeyColumn(name = "email", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
@@ -23,7 +23,8 @@ data class UserCassandraModel(
         var qualificationPart: String,
         var password: String,
         var isLawyer: Boolean,
-        @Transient var listFiles: Set<String>)
+        @Transient var listFiles: Set<String>?) {
+}
 
 @Table
 data class AddressUserCassandraModel(

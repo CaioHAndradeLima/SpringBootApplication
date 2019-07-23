@@ -1,6 +1,6 @@
 package com.mechanical.infix_utils
 
-import java.util.*
-import java.util.Arrays
+import com.mechanical.endpoint.gson
 
 
+fun Any.toJson(): String = gson.toJson(this)
