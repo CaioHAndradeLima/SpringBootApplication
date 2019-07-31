@@ -1,41 +1,57 @@
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonReader
+import com.mechanical.Application
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.UserImpl
-import com.mechanical.infix_utils.toJson
+import com.mechanical.endpoint.LoginEntity
+import extensions.mockJson
+import mocks.newInstanceLoginEntity
+import org.junit.Assert.assertEquals
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.context.annotation.Bean
-import org.springframework.test.context.junit4.SpringRunner
+import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import java.io.FileReader
-import java.lang.reflect.Type
+import java.util.*
 
-@RunWith(SpringRunner::class)
+@RunWith(SpringJUnit4ClassRunner::class)
+@SpringBootTest(classes = [Application::class])
 class UserImplTest {
 
-    companion object {
-        @Bean
-        @JvmStatic
-        fun getUserImplementation() = UserImpl()
+    @Before
+    fun setUp() {
+
     }
 
-    var userImpl: UserImpl = getUserImplementation()
-
-
-    val gson = Gson()
+    @Autowired
+    lateinit var userImpl: UserImpl
 
     @Test
     fun whenAddTheUser_AddressIsAddedToo() {
         val user = mockJson<User>("user.json")
-    }
+        userImpl.saveUser(user, true)
 
-    inline fun <reified T> mockJson(nameFile: String): T {
-        val localFile = "src/test/resources/$nameFile"
-        val reader = JsonReader(FileReader(localFile))
-        return gson.fromJson(reader, T::class.java)
-    }
+        var loginEntity = newInstanceLoginEntity()
 
-    class TypeTokenJson<T> : TypeToken<T>()
+        //test case success (cpf correct + password correct)
+        val userCorrect = userImpl.getAllUser(loginEntity)
+        assertEquals(userCorrect, user)
+
+        //test case success (email correct + password correct)
+        loginEntity = newInstanceLoginEntity(emailOrCPF = "caiohandradelima@gmail.com")
+        val allUserEmailCorrect = userImpl.getAllUser(loginEntity)
+        assertEquals(user, allUserEmailCorrect)
+
+        //test case failied(cpf correct + password wrong)
+        loginEntity = newInstanceLoginEntity(password = "24244")
+        val allUserPassowrdWrong = userImpl.getAllUser(loginEntity)
+        assertEquals(null, allUserPassowrdWrong)
+
+        //test case failied(emailOrCpf wrong + password correct)
+        loginEntity = newInstanceLoginEntity(emailOrCPF = "24244")
+        val allUserCPFWrong = userImpl.getAllUser(loginEntity)
+        assertEquals(null, allUserCPFWrong)
+    }
 }

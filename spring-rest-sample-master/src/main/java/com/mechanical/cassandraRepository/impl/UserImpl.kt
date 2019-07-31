@@ -15,12 +15,12 @@ import java.lang.IllegalStateException
 @Component
 class UserImpl {
 
-    @Autowired
+    @Autowired(required = true)
     lateinit var userRepository: UserRepository
 
-    @Autowired
+    @Autowired(required = true)
     lateinit var addressUserRepository: AddressUserRepository
-
+    
     fun getAllUser(loginEntity: LoginEntity): User? {
         val user = getAllUser(loginEntity.emailOrCPF)
                 ?: return null

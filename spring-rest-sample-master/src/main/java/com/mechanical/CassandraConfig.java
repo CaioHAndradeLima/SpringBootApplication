@@ -45,8 +45,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
      */
     @Override
     protected List<String> getStartupScripts() {
-        return Collections.singletonList("CREATE KEYSPACE IF NOT EXISTS " + KEYSPACE + " WITH replication = {" + " 'class': 'SimpleStrategy', " + " 'replication_factor': '3' " + "};");
-
+        return Collections.singletonList("CREATE KEYSPACE IF NOT EXISTS " + KEYSPACE + " WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '3' };");
     }
 
     @Override
