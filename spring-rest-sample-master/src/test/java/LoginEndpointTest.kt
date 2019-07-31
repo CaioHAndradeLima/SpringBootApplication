@@ -1,5 +1,4 @@
 import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.impl.UserImpl
 import com.mechanical.cassandraRepository.repository.AddressUserRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEndpoint
@@ -9,7 +8,6 @@ import mocks.newInstanceLoginEntity
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
-import org.mockito.InjectMocks
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
@@ -33,10 +31,6 @@ class LoginEndpointTest {
 
     @MockBean
     lateinit var addressUserRepository: AddressUserRepository
-
-    @InjectMocks
-    @Autowired
-    private lateinit var userImpl: UserImpl
 
     /**
      * When make the call "/loginapi" passing info to do login
