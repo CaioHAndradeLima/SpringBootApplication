@@ -12,3 +12,8 @@ inline fun <reified T> mockJson(nameFile: String): T {
     val reader = JsonReader(FileReader(localFile))
     return gson.fromJson(reader, T::class.java)
 }
+
+
+inline fun <reified T> String.fromJson() : T {
+    return gson.fromJson(this, T::class.java)
+}

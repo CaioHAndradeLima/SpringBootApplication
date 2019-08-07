@@ -1,6 +1,9 @@
 package com.mechanical.cassandraRepository.model
 
 import com.datastax.driver.core.DataType
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.google.gson.annotations.SerializedName
+import com.sun.xml.internal.ws.developer.Serialization
 import org.springframework.data.cassandra.core.cql.Ordering
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType
 import org.springframework.data.cassandra.core.mapping.CassandraType
@@ -15,6 +18,7 @@ data class UserCassandraModel constructor(
         @PrimaryKeyColumn(name = "email", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
         var email: String,
         @PrimaryKeyColumn(name = "uuidAddress", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
+        @SerializedName("UUIDAddress")
         var UUIDAddress: UUID,
         var name: String,
         var maritalStatus: String,

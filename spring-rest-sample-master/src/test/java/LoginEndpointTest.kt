@@ -3,8 +3,11 @@ import com.mechanical.cassandraRepository.repository.AddressUserRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEndpoint
 import com.mechanical.infix_utils.toJson
+import extensions.fromJson
 import extensions.mockJson
+import junit.framework.Assert.assertEquals
 import mocks.newInstanceLoginEntity
+import org.hamcrest.Matchers.`is`
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
@@ -16,7 +19,11 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import org.springframework.test.web.servlet.MvcResult
+import org.springframework.test.web.servlet.ResultActions
+
 
 @WebMvcTest(controllers = [LoginEndpoint::class])
 @RunWith(SpringJUnit4ClassRunner::class)
@@ -40,17 +47,81 @@ class LoginEndpointTest {
     @Test
     fun whenUserCallLoginPassingLoginEntity_couldReturnUserAndResponseOK() {
         val user = mockJson<User>("user.json")
+        val resultActions = doLogin(user)
+        //.andExpect(jsonPath("$", hasSize(1)))
+        //.andExpect(jsonPath("$[0].name", is(alex.getName())));
+                //.andExpect(jsonPath("$.user.toString()", `is`(user.user.toString())))
 
+        val result = resultActions.andReturn()
+        assertEquals(result.response.contentAsString, user.toJson())
+    }
+
+    /**
+     * When make the call "/loginapi" passing info to do login
+     * and user not found or return null, the server awsner to
+     * client unprocessable Entity
+     */
+    @Test
+    fun whenUserCallLoginPassingLoginEntityIncorrect_couldReturnResponseError() {
         val newInstanceLoginEntity = newInstanceLoginEntity()
-        given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
-                user.user
-        )
+        given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(null)
+
 
         mvc.perform(post("/loginapi")
                 .content(newInstanceLoginEntity.toJson())
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk)
+                .andExpect(status().isUnprocessableEntity)
         //.andExpect(jsonPath("$", hasSize(1)))
         //.andExpect(jsonPath("$[0].name", is(alex.getName())));
+        //.andExpect(jsonPath("$.user.toString()", `is`(user.user.toString())))
     }
+
+    /**
+     * When make the call "/loginapi" passing info to do login
+     * and user is found and authenticate, is possible now
+     * request /api/...
+     */
+    @Test
+    fun whenUserDoLogin_isPossibleRequestPathApi() {
+        val user = mockJson<User>("user.json")
+        doLogin(user)
+
+        TODO("TEST REQUISITION HERE")
+    }
+
+    /**
+     * When make the call "/loginapi" passing info to do login
+     * and user is NOT found and not authenticate, is not possible
+     * request /api/...
+     */
+    @Test
+    fun whenUserNotDidLogin_isNotPossibleRequestPathApi() {
+        val user = mockJson<User>("user.json")
+        doLogin(user)
+
+        mvc.perform(post("/api/user")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isForbidden)
+    }
+
+
+    /**
+     * make the login passing the user
+     */
+    private fun doLogin(user: User): ResultActions {
+        val newInstanceLoginEntity = newInstanceLoginEntity()
+        given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
+                user.user
+        )
+        given(addressUserRepository.findByUuid(user.user.UUIDAddress)).willReturn(
+                user.address
+        )
+
+        return mvc.perform(post("/loginapi")
+                .content(newInstanceLoginEntity.toJson())
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk)
+    }
+
+
 }

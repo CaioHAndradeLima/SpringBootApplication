@@ -43,7 +43,7 @@ class LoginEndpoint {
         val session = request.getSession(true)
         session.setAttribute(HttpSessionSecurityContextRepository.SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext())
 
-        return ResponseEntity(user,HttpStatus.OK)
+        return ResponseEntity(user.toJson(),HttpStatus.OK)
     }
 
     @PostMapping("register")

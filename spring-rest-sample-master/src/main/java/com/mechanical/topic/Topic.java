@@ -1,6 +1,7 @@
 package com.mechanical.topic;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.mechanical.infix_utils.AnyInfixKt;
 /*
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -44,3 +45,6 @@ public class Topic {
     }
 }
 */
+
+class Topic {
+}
