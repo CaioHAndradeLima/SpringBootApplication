@@ -1,22 +1,19 @@
 {
   "user": {
     "cpf": "44574551801",
+    "isLawyer": false,
     "email": "caiohandradelima@gmail.com",
-    "UUIDAddress": "f73c301d-8f52-4107-a167-3f20948a14f8",
     "name": "caio henrique",
     "maritalStatus": "Solteiro",
     "phone": "11 969467467",
     "additionalInfo": "additional info",
     "qualificationPart": "qualificacaox",
     "password": "senha do cara",
-    "isLawyer": true
-  },
-  "address": {
-    "uuid": "f73c301d-8f52-4107-a167-3f20948a14f8",
-    "latitude": 23.5235235,
-    "longitude": 46.355353,
+    "oab": "2324",
+    "latitude": 23.3452342,
+    "longitude": 46.234535,
     "street": "rua imaculada",
-    "CEP": "07183070",
+    "CEP": "07183-070",
     "neighborhood": "bairro",
     "identifierHome": "29",
     "state": "SP"

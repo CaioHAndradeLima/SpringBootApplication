@@ -1,9 +1,6 @@
-import com.google.gson.Gson
-import com.google.gson.stream.JsonReader
 import com.mechanical.Application
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.UserImpl
-import com.mechanical.endpoint.LoginEntity
 import extensions.mockJson
 import mocks.newInstanceLoginEntity
 import org.junit.Assert.assertEquals
@@ -13,8 +10,7 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
-import java.io.FileReader
-import java.util.*
+
 
 @RunWith(SpringJUnit4ClassRunner::class)
 @SpringBootTest(classes = [Application::class])
@@ -31,7 +27,7 @@ class UserImplTest {
     @Test
     fun whenAddTheUser_AddressIsAddedToo() {
         val user = mockJson<User>("user.json")
-        userImpl.saveUser(user, true)
+        userImpl.saveUser(user)
 
         var loginEntity = newInstanceLoginEntity()
 

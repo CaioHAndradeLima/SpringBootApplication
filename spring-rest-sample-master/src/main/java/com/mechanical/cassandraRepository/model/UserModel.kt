@@ -1,12 +1,7 @@
 package com.mechanical.cassandraRepository.model
 
-import com.datastax.driver.core.DataType
-import com.fasterxml.jackson.annotation.JsonProperty
-import com.google.gson.annotations.SerializedName
-import com.sun.xml.internal.ws.developer.Serialization
 import org.springframework.data.cassandra.core.cql.Ordering
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType
-import org.springframework.data.cassandra.core.mapping.CassandraType
 import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn
 import org.springframework.data.cassandra.core.mapping.Table
 import java.util.*
@@ -15,25 +10,19 @@ import java.util.*
 data class UserCassandraModel constructor(
         @PrimaryKeyColumn(name = "CPF", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
         var cpf: String,
-        @PrimaryKeyColumn(name = "email", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
+        @PrimaryKeyColumn(name = "isLawyer", ordinal = 0, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
+        var isLawyer: Boolean,
+        @PrimaryKeyColumn(name = "email", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
         var email: String,
-        @PrimaryKeyColumn(name = "uuidAddress", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
-        @SerializedName("UUIDAddress")
-        var UUIDAddress: UUID,
         var name: String,
         var maritalStatus: String,
         var phone: String,
         var additionalInfo: String,
         var qualificationPart: String,
         var password: String,
-        var isLawyer: Boolean,
-        @Transient var listFiles: Set<String>?) {
-}
+        var oab: String?,
+        @Transient var listFiles: Set<String>?,
 
-@Table
-data class AddressUserCassandraModel(
-        @PrimaryKeyColumn(name = "uuid", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
-        var uuid: UUID,
         var latitude: Double,
         var longitude: Double,
         var street: String,

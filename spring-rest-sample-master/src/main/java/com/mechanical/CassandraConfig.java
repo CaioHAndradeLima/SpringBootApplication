@@ -18,7 +18,7 @@ import java.util.List;
 @EnableCassandraRepositories()
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
-    public static final String KEYSPACE = "teste";
+    public static final String KEYSPACE = "test";
 
     @Override
     public SchemaAction getSchemaAction() {

@@ -1,13 +1,10 @@
 import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.repository.AddressUserRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEndpoint
 import com.mechanical.infix_utils.toJson
-import extensions.fromJson
 import extensions.mockJson
 import junit.framework.Assert.assertEquals
 import mocks.newInstanceLoginEntity
-import org.hamcrest.Matchers.`is`
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito.given
@@ -19,9 +16,7 @@ import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import org.springframework.test.web.servlet.MvcResult
 import org.springframework.test.web.servlet.ResultActions
 
 
@@ -35,9 +30,6 @@ class LoginEndpointTest {
 
     @MockBean
     lateinit var userRepository: UserRepository
-
-    @MockBean
-    lateinit var addressUserRepository: AddressUserRepository
 
     /**
      * When make the call "/loginapi" passing info to do login
@@ -112,9 +104,6 @@ class LoginEndpointTest {
         val newInstanceLoginEntity = newInstanceLoginEntity()
         given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
                 user.user
-        )
-        given(addressUserRepository.findByUuid(user.user.UUIDAddress)).willReturn(
-                user.address
         )
 
         return mvc.perform(post("/loginapi")
