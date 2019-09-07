@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
 
 @Component
-class UserImpl {
+open class UserImpl {
 
     @Autowired(required = true)
     lateinit var userRepository: UserRepository

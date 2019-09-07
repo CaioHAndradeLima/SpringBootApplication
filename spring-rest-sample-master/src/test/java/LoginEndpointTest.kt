@@ -1,4 +1,5 @@
 import com.mechanical.cassandraRepository.User
+import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEndpoint
 import com.mechanical.infix_utils.toJson
@@ -15,21 +16,24 @@ import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
+import org.springframework.test.web.servlet.ResultActions
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
-import org.springframework.test.web.servlet.ResultActions
-
 
 @WebMvcTest(controllers = [LoginEndpoint::class])
 @RunWith(SpringJUnit4ClassRunner::class)
 @ContextConfiguration(classes = [ApplicationTest::class])
-class LoginEndpointTest {
+open class LoginEndpointTest {
 
     @Autowired
     private lateinit var mvc: MockMvc
 
     @MockBean
     lateinit var userRepository: UserRepository
+
+    @MockBean
+    lateinit var lawOfficeRepository: LawOfficeRepository
+
 
     /**
      * When make the call "/loginapi" passing info to do login
@@ -39,7 +43,7 @@ class LoginEndpointTest {
     @Test
     fun whenUserCallLoginPassingLoginEntity_couldReturnUserAndResponseOK() {
         val user = mockJson<User>("user.json")
-        val resultActions = doLogin(user)
+        val resultActions = doLogin(user, userRepository, mvc)
         //.andExpect(jsonPath("$", hasSize(1)))
         //.andExpect(jsonPath("$[0].name", is(alex.getName())));
                 //.andExpect(jsonPath("$.user.toString()", `is`(user.user.toString())))
@@ -76,7 +80,7 @@ class LoginEndpointTest {
     @Test
     fun whenUserDoLogin_isPossibleRequestPathApi() {
         val user = mockJson<User>("user.json")
-        doLogin(user)
+        doLogin(user, userRepository, mvc)
 
         TODO("TEST REQUISITION HERE")
     }
@@ -89,28 +93,11 @@ class LoginEndpointTest {
     @Test
     fun whenUserNotDidLogin_isNotPossibleRequestPathApi() {
         val user = mockJson<User>("user.json")
-        doLogin(user)
+        doLogin(user, userRepository, mvc)
 
         mvc.perform(post("/api/user")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isForbidden)
     }
-
-
-    /**
-     * make the login passing the user
-     */
-    private fun doLogin(user: User): ResultActions {
-        val newInstanceLoginEntity = newInstanceLoginEntity()
-        given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
-                user.user
-        )
-
-        return mvc.perform(post("/loginapi")
-                .content(newInstanceLoginEntity.toJson())
-                .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk)
-    }
-
-
 }
+
