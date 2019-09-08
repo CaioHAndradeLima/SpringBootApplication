@@ -1,3 +1,5 @@
+package feature.login
+
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.infix_utils.toJson

@@ -1,3 +1,6 @@
+package feature.login
+
+import com.mechanical.Application
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
@@ -16,13 +19,12 @@ import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.ResultActions
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @WebMvcTest(controllers = [LoginEndpoint::class])
 @RunWith(SpringJUnit4ClassRunner::class)
-@ContextConfiguration(classes = [ApplicationTest::class])
+@ContextConfiguration(classes = [Application::class])
 open class LoginEndpointTest {
 
     @Autowired
@@ -82,7 +84,7 @@ open class LoginEndpointTest {
         val user = mockJson<User>("user.json")
         doLogin(user, userRepository, mvc)
 
-        TODO("TEST REQUISITION HERE")
+        TODO("ITS NOT WORKING")
     }
 
     /**

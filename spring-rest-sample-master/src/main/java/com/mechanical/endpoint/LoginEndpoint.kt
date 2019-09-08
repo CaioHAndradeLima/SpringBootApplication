@@ -3,8 +3,7 @@ package com.mechanical.endpoint
 import com.google.gson.annotations.Expose
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.UserImpl
-import com.mechanical.cassandraRepository.model.UserCassandraModel
-import com.mechanical.topic.AuthenticationToken
+import com.mechanical.security.AuthenticationToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.http.HttpStatus
@@ -15,7 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
-import retrofit2.http.Body
 import javax.servlet.http.HttpServletRequest
 import javax.validation.constraints.NotEmpty
 import javax.validation.constraints.NotNull

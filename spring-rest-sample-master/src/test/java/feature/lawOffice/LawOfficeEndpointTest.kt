@@ -1,10 +1,11 @@
-import com.mechanical.cassandraRepository.User
+package feature.lawOffice
+
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LawOfficeEndpoint
 import com.mechanical.endpoint.LoginEndpoint
-import com.mechanical.infix_utils.toJson
+import extensions.fromJson
 import extensions.mockJson
 import junit.framework.Assert.assertEquals
 import org.junit.Test
@@ -17,12 +18,11 @@ import org.springframework.http.MediaType
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
+import security.ApplicationTest
 
-
-
-@WebMvcTest(controllers = [LawOfficeEndpoint::class])
+@WebMvcTest(controllers = [LoginEndpoint::class, LawOfficeEndpoint::class])
 @RunWith(SpringJUnit4ClassRunner::class)
 @ContextConfiguration(classes = [ApplicationTest::class])
 class LawOfficeEndpointTest {
@@ -36,22 +36,21 @@ class LawOfficeEndpointTest {
     @MockBean
     lateinit var userRepository: UserRepository
 
-
     @Test
     fun validGET() {
-        val user = mockJson<User>("user.json")
-        doLogin(user, userRepository, mvc)
 
         val lawOffice = mockJson<LawOffice>("lawOffice.json")
+
         BDDMockito.given(lawRepository.findAll()).willReturn(mutableListOf(lawOffice))
 
-        val result = mvc.perform(MockMvcRequestBuilders.get("/api/lawOffice")
+        val result = mvc.perform(get("/api/lawOffice")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk)
                 .andReturn()
 
-        assertEquals(result.response.contentAsString, mutableListOf(lawRepository).toJson())
 
+        assertEquals(lawOffice,
+                result.response.contentAsString.fromJson<Array<LawOffice>>()[0])
 
     }
 

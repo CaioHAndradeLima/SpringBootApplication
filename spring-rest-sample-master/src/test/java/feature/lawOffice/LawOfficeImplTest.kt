@@ -1,3 +1,5 @@
+package feature.lawOffice
+
 import com.mechanical.Application
 import com.mechanical.cassandraRepository.impl.LawOfficeImpl
 import com.mechanical.cassandraRepository.model.LawOffice

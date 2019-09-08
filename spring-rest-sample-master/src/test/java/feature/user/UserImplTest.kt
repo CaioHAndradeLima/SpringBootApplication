@@ -1,3 +1,5 @@
+package feature.user
+
 import com.mechanical.Application
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.UserImpl

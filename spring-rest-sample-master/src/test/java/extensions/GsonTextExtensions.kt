@@ -5,9 +5,6 @@ import com.google.gson.stream.JsonReader
 import java.io.FileReader
 import java.io.BufferedReader
 
-
-
-
 val gson = Gson()
 
 inline fun <reified T> mockJson(nameFile: String): T {
@@ -16,13 +13,12 @@ inline fun <reified T> mockJson(nameFile: String): T {
     return gson.fromJson(reader, T::class.java)
 }
 
-
 inline fun <reified T> String.fromJson() : T {
     return gson.fromJson(this, T::class.java)
 }
 
 fun getJson(fileName: String) : String {
-    val localFile = "src/test/resources/$fileName"
+    val localFile = "./src/test/resources/$fileName"
 
     val reader = BufferedReader(FileReader(localFile))
     val stringBuilder = StringBuilder()
