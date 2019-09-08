@@ -7,12 +7,12 @@ import com.mechanical.infix_utils.toJson
 
 val gson = Gson()
 
-inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
+inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T?) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
 
     val entity = gson.fromJson(
-            decrypt(jsonEncrypted),
-            T::class.java
-    )
+           decrypt(jsonEncrypted),
+           T::class.java
+   )
 
     val pair = call(entity)
 
@@ -23,6 +23,19 @@ inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T) ->
 
     return pair.first.build<Y>()
 }
+
+inline fun <reified Y> managerRequest(call: () -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
+
+    val pair = call()
+
+    pair.second?.let {
+        val jsonEncrypted = encrypt(it!!.toJson())
+        pair.first.body(jsonEncrypted)
+    }
+
+    return pair.first.build<Y>()
+}
+
 
 fun decrypt(jsonEncrypted: String): String {
     return jsonEncrypted

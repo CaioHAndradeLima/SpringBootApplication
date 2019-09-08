@@ -3,11 +3,14 @@ package com.mechanical.cassandraRepository.repository
 import com.mechanical.cassandraRepository.model.LawOffice
 import org.springframework.data.cassandra.repository.CassandraRepository
 import org.springframework.stereotype.Repository
+import java.util.*
 
 @Repository
 interface LawOfficeRepository : CassandraRepository<LawOffice, String> {
 
     fun findByCpfOwner(cpfOwner: String): List<LawOffice>
+
+    fun findByUuid(uuid: UUID): LawOffice
 /*
     @AllowFiltering
     @Nullable

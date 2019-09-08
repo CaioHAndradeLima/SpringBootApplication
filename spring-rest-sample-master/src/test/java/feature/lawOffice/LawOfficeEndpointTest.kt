@@ -1,13 +1,22 @@
 package feature.lawOffice
 
+import com.mechanical.Application
+import com.mechanical.UserProvider
+import com.mechanical.cassandraRepository.User
+import com.mechanical.cassandraRepository.extensions.toUUID
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LawOfficeEndpoint
 import com.mechanical.endpoint.LoginEndpoint
+import com.mechanical.security.AuthenticationToken
 import extensions.fromJson
 import extensions.mockJson
+import feature.login.doLogin
+import io.mockk.*
 import junit.framework.Assert.assertEquals
+import mocks.newInstanceLoginEntity
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.BDDMockito
@@ -15,12 +24,15 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
 import org.springframework.boot.test.mock.mockito.MockBean
 import org.springframework.http.MediaType
+import org.springframework.security.core.context.SecurityContextHolder
+import org.springframework.security.web.context.HttpSessionSecurityContextRepository
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import security.ApplicationTest
+
 
 @WebMvcTest(controllers = [LoginEndpoint::class, LawOfficeEndpoint::class])
 @RunWith(SpringJUnit4ClassRunner::class)
@@ -53,5 +65,30 @@ class LawOfficeEndpointTest {
                 result.response.contentAsString.fromJson<Array<LawOffice>>()[0])
 
     }
+
+
+    @Test
+    fun validJobs() {
+
+        val lawOffice = mockJson<LawOffice>("lawOffice.json")
+        val user = mockJson<User>("user.json")
+        BDDMockito.given(lawRepository.findByUuid(user.user.whereWork.elementAt(0).toUUID())).willReturn(lawOffice)
+
+
+        TODO("I DONT KNOW WHICH ERROR")
+        val providerMock = mockk<UserProvider>()
+        every { providerMock.provideUserAuthenticate() } returns user.user
+
+        //BDDMockito.given().willReturn(user.user)
+
+        val result = mvc.perform(get("/api/lawOffice/jobs")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().isOk)
+                .andReturn()
+
+        assertEquals(lawOffice,
+                result.response.contentAsString.fromJson<Array<LawOffice>>()[0])
+    }
+
 
 }

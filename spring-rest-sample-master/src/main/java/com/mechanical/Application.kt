@@ -22,31 +22,5 @@ open class Application {
         fun main(args: Array<String>) {
             SpringApplication.run(Application::class.java, *args)
         }
-
-        fun showJson() {
-            System.out.println(User(
-                    UserCassandraModel(
-                            "44574551801",
-                            false,
-                            "caiohandradelima@gmail.com",
-                            "caio henrique",
-                            "Solteiro",
-                            "11 969467467",
-                            "additional info",
-                            "qualificacaox",
-                            "senha do cara",
-                            "2324",
-                            HashSet(),
-                            23.3452342,
-                            46.234535,
-                            "rua imaculada",
-                            "07183-070",
-                            "bairro",
-                            "29",
-                            "SP"
-                    )
-            ).toJson())
-        }
-
     }
 }

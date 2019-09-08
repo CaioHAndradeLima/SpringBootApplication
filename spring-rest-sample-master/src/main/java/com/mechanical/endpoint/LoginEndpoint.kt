@@ -48,7 +48,7 @@ class LoginEndpoint {
     fun registerAccount(@RequestBody requestEncrypted: String) : ResponseEntity<*> {
         return managerRequest<User,Any>(requestEncrypted) {
 
-            val isSalved = userImpl.saveUser(it)
+            val isSalved = userImpl.saveUser(it!!)
 
             if(!isSalved) {
                 return@managerRequest Pair(ResponseEntity.status(HttpStatus.CONFLICT), null)

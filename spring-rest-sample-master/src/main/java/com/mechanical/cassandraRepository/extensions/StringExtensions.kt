@@ -1,6 +1,7 @@
 package com.mechanical.cassandraRepository.extensions
 
 import java.lang.StringBuilder
+import java.util.*
 
 fun String.cutSpaces(): String {
 
@@ -16,3 +17,5 @@ fun String.cutSpaces(): String {
 
     return stringBuilder.toString()
 }
+
+fun String.toUUID() = UUID.fromString(this)

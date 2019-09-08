@@ -1,6 +1,5 @@
 package security
 
-import com.mechanical.security.WebSecurityConfig
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
@@ -14,6 +13,6 @@ open class WebSecurityConfigTest : WebSecurityConfigurerAdapter() {
 
         http.authorizeRequests().anyRequest()
                 .permitAll()
-
     }
+
 }

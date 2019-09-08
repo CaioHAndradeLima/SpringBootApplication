@@ -1,5 +1,7 @@
 package com.mechanical.cassandraRepository.impl
 
+import com.mechanical.UserProvider.provideUserAuthenticate
+import com.mechanical.cassandraRepository.extensions.toUUID
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.core.getCoordinates
@@ -19,13 +21,13 @@ class LawOfficeImpl {
     fun searchLawOfficeByLatitudeAndLongitude(latitude: Double, longitude: Double) {
         val arrayCoordinates = getCoordinates(latitude, longitude, 0.5)
 
-        if(arrayCoordinates[0] < 0 && arrayCoordinates[2] < 0) {
+        if (arrayCoordinates[0] < 0 && arrayCoordinates[2] < 0) {
 
-        } else if(arrayCoordinates[0] < 0 && arrayCoordinates[2] > 0) {
+        } else if (arrayCoordinates[0] < 0 && arrayCoordinates[2] > 0) {
 
-        } else if(arrayCoordinates[0] > 0 && arrayCoordinates[0] < 0) {
+        } else if (arrayCoordinates[0] > 0 && arrayCoordinates[0] < 0) {
 
-        } else if(arrayCoordinates[0] > 0 && arrayCoordinates[0] > 0) {
+        } else if (arrayCoordinates[0] > 0 && arrayCoordinates[0] > 0) {
 
         }
         TODO()
@@ -37,4 +39,13 @@ class LawOfficeImpl {
         return lawOfficeRepository.findByCpfOwner(cpfOwner)
     }
 
+    fun getAllLawOfficeByUser(listUUID: Set<String> ): List<LawOffice> {
+        val listLawOffice = mutableListOf<LawOffice>()
+
+        listUUID.forEach {
+            listLawOffice.add(lawOfficeRepository.findByUuid(it.toUUID()))
+        }
+
+        return listLawOffice
+    }
 }

@@ -29,5 +29,7 @@ data class UserCassandraModel constructor(
         var CEP: String,
         var neighborhood: String,
         var identifierHome: String,
-        var state: String
+        var state: String,
+        var whereWork: Set<String>
+
 )

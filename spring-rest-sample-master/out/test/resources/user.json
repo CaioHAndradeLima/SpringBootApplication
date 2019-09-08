@@ -16,6 +16,7 @@
     "CEP": "07183-070",
     "neighborhood": "bairro",
     "identifierHome": "29",
-    "state": "SP"
+    "state": "SP",
+    "whereWork": ["b36c878b-41a9-441f-a001-ef4478c49733"]
   }
 }

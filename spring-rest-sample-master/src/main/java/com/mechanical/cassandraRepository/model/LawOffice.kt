@@ -28,9 +28,8 @@ data class LawOffice(
         var identifierHome: String,
         var state: String,
         @SerializedName("cep")
-        var CEP: String,
-        @SerializedName("listEmployees")
-        val listEmployees: Set<String>
+        var CEP: String
+
 )
 
 

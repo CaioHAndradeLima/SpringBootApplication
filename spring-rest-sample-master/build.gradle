@@ -52,8 +52,7 @@ dependencies {
     compile 'org.jetbrains.kotlin:kotlin-reflect:1.1.51'
     testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '2.1.6.RELEASE'
     testCompile group: 'junit', name: 'junit', version: '4.12'
-
-
+    testImplementation "io.mockk:mockk:1.9.3"
 }
 compileKotlin {
     kotlinOptions {
