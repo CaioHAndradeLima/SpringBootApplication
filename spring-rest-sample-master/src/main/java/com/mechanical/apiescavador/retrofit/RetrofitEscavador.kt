@@ -1,26 +1,25 @@
 package com.mechanical.apiescavador.retrofit
 
-import com.mechanical.apiescavador.`in`.UserEscavador
-import com.mechanical.apiescavador.out.AuthenticationEscavadorModel
+private lateinit var retrofitMethods: RequestRetrofitMethods
+private lateinit var retrofitLink: RequestRetrofitLink
 
+fun provideRetrofitEscavador(): RequestRetrofitMethods {
+    if (!::retrofitMethods.isInitialized)
+        return retrofitMethods
 
-val userEscavador = UserEscavador()
-lateinit var infoAuthentication: AuthenticationEscavadorModel
-
-
-fun requestToken() {
-    getRetrofit()
+    retrofitMethods = providerRetrofit()
             .create(RequestRetrofitMethods::class.java)
-            .requestToken(userEscavador)
-            .subscribe {
 
-                if (it.isSuccessful && it.body() != null) {
-                    infoAuthentication = it.body()!!
-                    System.out.println("foi recebido token")
-                } else {
-                    System.out.println("nao foi recebido token")
-                }
-            }
+    return retrofitMethods
 }
 
+fun provideRetrofitEscavadorWithoutLink(): RequestRetrofitLink {
+    if (!::retrofitLink.isInitialized)
+        return retrofitLink
+
+    retrofitLink = providerRetrofit()
+            .create(RequestRetrofitLink::class.java)
+
+    return retrofitLink
+}
 

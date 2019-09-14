@@ -1,6 +1,6 @@
 package aviador
 
-import com.mechanical.apiescavador.ProcessEscavadorModel
+import com.mechanical.apiescavador.out.ProcessEscavadorModel
 import com.mechanical.apiescavador.out.AuthenticationEscavadorModel
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.cutSpaces

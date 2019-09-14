@@ -10,9 +10,9 @@ val gson = Gson()
 inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T?) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
 
     val entity = gson.fromJson(
-           decrypt(jsonEncrypted),
-           T::class.java
-   )
+            decrypt(jsonEncrypted),
+            T::class.java
+    )
 
     val pair = call(entity)
 
@@ -30,7 +30,8 @@ inline fun <reified Y> managerRequest(call: () -> Pair<ResponseEntity.BodyBuilde
 
     pair.second?.let {
         val jsonEncrypted = encrypt(it!!.toJson())
-        pair.first.body(jsonEncrypted)
+        val response = pair.first.body(jsonEncrypted)
+        return response
     }
 
     return pair.first.build<Y>()
@@ -41,6 +42,6 @@ fun decrypt(jsonEncrypted: String): String {
     return jsonEncrypted
 }
 
-fun encrypt(textToEncrypt: String) : String {
+fun encrypt(textToEncrypt: String): String {
     return textToEncrypt
 }

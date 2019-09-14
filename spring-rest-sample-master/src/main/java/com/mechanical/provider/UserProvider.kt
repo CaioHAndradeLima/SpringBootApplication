@@ -1,4 +1,4 @@
-package com.mechanical
+package com.mechanical.provider
 
 import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.security.AuthenticationToken
