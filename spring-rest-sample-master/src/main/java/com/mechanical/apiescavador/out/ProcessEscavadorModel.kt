@@ -1,4 +1,4 @@
-package com.mechanical.apiescavador
+package com.mechanical.apiescavador.`in`
 
 class ProcessEscavadorModel(
         var id: Int,
