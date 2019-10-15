@@ -2,15 +2,14 @@ package com.mechanical.cassandraRepository.impl
 
 import com.google.gson.annotations.SerializedName
 import com.mechanical.apiescavador.out.ProcessEscavadorModel
-import com.mechanical.apiescavador.request.ProcessEscavador
 import com.mechanical.cassandraRepository.model.ManagerProcessCassandraModel
 import com.mechanical.cassandraRepository.model.StatusManagerProcess
 import com.mechanical.cassandraRepository.repository.ManagerProcessRepository
+import com.mechanical.endpoint.LoginEntity
 import com.mechanical.integration.ManagerProcessIntegration
 import com.mechanical.integration.ProcessIntegration
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Component
-import java.lang.IllegalStateException
 
 @Component
 class ManagerProcessImpl {
@@ -43,6 +42,13 @@ class ManagerProcessImpl {
         return managerProcessCassandraModel
     }
 
+    /**
+     * register process monitoring and return true if it's on monitoring else otherwise
+     */
+    fun registerMonitoringProccess(infoLogin: LoginEntity, validNumberProcess: String) : Boolean {
+
+        val infoProcess = ManagerProcessIntegration.addMonitoring(validNumberProcess)
+    }
 }
 
 data class ManagerProcessResponse(

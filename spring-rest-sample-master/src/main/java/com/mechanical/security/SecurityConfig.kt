@@ -1,3 +1,5 @@
 package com.mechanical.security
 
-const val usingSecurity = true
+import com.mechanical.isDebug
+
+const val usingSecurity = !isDebug

@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 import com.mechanical.cassandraRepository.model.StatusManagerProcess
 
 
-data class ManagerProcessEscavadorModel(
+data class ManagerProcessEscavadorOut(
         @SerializedName("id")              val id: Int,
         @SerializedName("numero_processo") val processNumber: String,
         @SerializedName("status")          val status: StatusManagerProcess?,

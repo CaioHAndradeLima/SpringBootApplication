@@ -3,6 +3,7 @@ package com.mechanical.apiescavador.request
 import com.mechanical.apiescavador.out.ProcessEscavadorModel
 import com.mechanical.apiescavador.retrofit.provideRetrofitEscavadorWithoutLink
 import com.mechanical.cassandraRepository.extensions.newLog
+import com.mechanical.isDebug
 
 object ProcessEscavador {
 

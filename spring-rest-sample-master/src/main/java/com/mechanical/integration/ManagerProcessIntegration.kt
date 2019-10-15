@@ -1,5 +1,6 @@
 package com.mechanical.integration
 
+import com.mechanical.apiescavador.out.ProcessMonitoringOut
 import com.mechanical.apiescavador.request.ManagerProcessEscavador
 import com.mechanical.cassandraRepository.model.ManagerProcessCassandraModel
 
@@ -11,4 +12,10 @@ object ManagerProcessIntegration {
 
         return ManagerProcessCassandraModel(processManagerEscavador)
     }
+
+    fun addMonitoring(numberProcess: String): ProcessMonitoringOut? {
+        return ManagerProcessEscavador
+                .requestToEscavadorAddMonitorization(numberProcess) ?: return null
+    }
+
 }
