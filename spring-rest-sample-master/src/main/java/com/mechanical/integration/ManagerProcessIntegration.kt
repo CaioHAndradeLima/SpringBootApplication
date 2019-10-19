@@ -15,7 +15,12 @@ object ManagerProcessIntegration {
 
     fun addMonitoring(numberProcess: String): ProcessMonitoringOut? {
         return ManagerProcessEscavador
-                .requestToEscavadorAddMonitorization(numberProcess) ?: return null
+                .requestToEscavadorAddMonitoring(numberProcess) ?: return null
+    }
+
+    fun removeMonitoring(id: Int): Boolean {
+        return ManagerProcessEscavador
+                .requestToEscavadorRemoveMonitoring(id)
     }
 
 }

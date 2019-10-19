@@ -34,8 +34,8 @@ object ManagerProcessEscavador {
         return processInfoManager
     }
 
-    fun requestToEscavadorAddMonitorization(numberProcesss: String): ProcessMonitoringOut? {
-        var processMonitoringOut : ProcessMonitoringOut? = null
+    fun requestToEscavadorAddMonitoring(numberProcesss: String): ProcessMonitoringOut? {
+        var processMonitoringOut: ProcessMonitoringOut? = null
 
         provideRetrofitEscavador()
                 .addMonitoring(ProcessMonitoringIn(valor = numberProcesss))
@@ -46,7 +46,7 @@ object ManagerProcessEscavador {
 
                         processMonitoringOut = body
                     } else if (isDebug) {
-                        System.out.println("class ManagerProcessEscavador.requestToEscavadorSearchNewProcess response code= ${it.code()} and response message= ${it.message()}")
+                        System.out.println("class ManagerProcessEscavador.requestToEscavadorAddMonitoring response code= ${it.code()} and response message= ${it.message()}")
                     }
 
                 }) {
@@ -54,6 +54,20 @@ object ManagerProcessEscavador {
                 }
 
         return processMonitoringOut
+    }
+
+    fun requestToEscavadorRemoveMonitoring(id: Int): Boolean {
+        var isSuccessful = false
+
+        provideRetrofitEscavador()
+                .removeMonitoring(id)
+                .subscribe({
+                    isSuccessful = it.isSuccessful
+                }) {
+                    it.newLog()
+                }
+
+        return isSuccessful
     }
 }
 

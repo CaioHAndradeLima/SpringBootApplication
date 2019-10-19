@@ -8,10 +8,7 @@ import com.mechanical.apiescavador.out.ProcessEscavadorModel
 import com.mechanical.apiescavador.out.ProcessMonitoringOut
 import io.reactivex.Observable
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.POST
-import retrofit2.http.Path
-import retrofit2.http.Url
+import retrofit2.http.*
 
 interface RequestRetrofitMethods {
 
@@ -22,8 +19,11 @@ interface RequestRetrofitMethods {
     @POST("processo-tribunal/{number}/async")
     fun requestInfosToGetProcess(@Path("number") number: String): Observable<Response<ManagerProcessEscavadorOut>>
 
-    @POST
+    @POST("monitoramento-tribunal")
     fun addMonitoring(@Body infoProcess: ProcessMonitoringIn) : Observable<Response<ProcessMonitoringOut>>
+
+    @DELETE("monitoramento-tribunal/")
+    fun removeMonitoring(id: Int): Observable<Response<ProcessMonitoringOut>>
 }
 
 
