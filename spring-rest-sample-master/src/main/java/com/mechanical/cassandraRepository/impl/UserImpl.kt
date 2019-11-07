@@ -37,6 +37,10 @@ open class UserImpl {
         getAllUser(user.user.cpf)?.let { return false }
         getAllUser(user.user.email)?.let { return false }
 
+        if (user.user.isLawyer && user.lawOffice == null) {
+            return false
+        }
+
         userRepository.save(user.user)
 
         return true

@@ -1,6 +1,7 @@
 package com.mechanical.cassandraRepository.extensions
 
 import java.lang.StringBuilder
+import java.text.SimpleDateFormat
 import java.util.*
 
 fun String.cutSpaces(): String {
@@ -19,3 +20,7 @@ fun String.cutSpaces(): String {
 }
 
 fun String.toUUID() = UUID.fromString(this)
+
+fun String.formatToDate(format: String = "dd/MM/yyyy") : Date {
+   return SimpleDateFormat(format).parse(this)
+}

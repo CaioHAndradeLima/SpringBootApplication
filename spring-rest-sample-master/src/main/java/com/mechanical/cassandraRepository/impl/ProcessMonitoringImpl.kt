@@ -16,6 +16,22 @@ class ProcessMonitoringImpl {
     @Autowired(required = true)
     lateinit var processMonitoringRepository: ProcessMonitoringRepository
 
+    fun isMonitoring(numberProcess: String): Boolean {
+        return processMonitoringRepository.findByNumberProcess(numberProcess) != null
+    }
+
+    fun isMonitoring(numberProcess: String, ids: MutableList<String>): Boolean {
+        val processMonitoring = processMonitoringRepository.findByNumberProcess(numberProcess)
+                ?: return false
+
+        ids.forEach {
+            if(processMonitoring.listWhoListeningProcess!!.contains(it))
+                return true
+        }
+
+        return false
+    }
+
     private fun addNewMonitoring(
             lawOffice: LawOffice,
             numberProcess: String,
@@ -87,7 +103,7 @@ class ProcessMonitoringImpl {
 
             if (mutableSet.size == 0) {
                 val isSuccessful = ManagerProcessIntegration.removeMonitoring(it.idMonitoring)
-                if(isSuccessful) {
+                if (isSuccessful) {
                     processMonitoringRepository.delete(it)
                 } else {
                     return@removeMonitoringProcess false

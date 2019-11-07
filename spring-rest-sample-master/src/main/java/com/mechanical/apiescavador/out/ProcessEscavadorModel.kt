@@ -37,12 +37,26 @@ class InstanciaEscavadorModel(
         var orgao_julgador: String,
         var valor_causa: String,
         var last_update_time: String,
-        var dados: List<DadosEscavadorModel>,
+        var dados: List<DadosEscavadorModel>?,
 
         var partes: List<PartesEscavadorModel>,
         var movimentacoes: List<MovimentacoesEscavadorModel>,
         var audiencias: List<AudienciasEscavadorModel>
-)
+) {
+
+    companion object {
+        private const val JUIZ = "Juiz"
+    }
+
+
+    fun getJuiz(): String? {
+        dados?.forEach {
+            if(it.tipo == JUIZ) return it.valor
+        }
+
+        return null
+    }
+}
 
 class DadosEscavadorModel(
         var tipo: String,

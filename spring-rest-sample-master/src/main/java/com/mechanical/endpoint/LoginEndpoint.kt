@@ -46,7 +46,7 @@ class LoginEndpoint {
 
     @PostMapping("register")
     fun registerAccount(@RequestBody requestEncrypted: String) : ResponseEntity<*> {
-        return managerRequest<User,Any>(requestEncrypted) {
+        return managerRequest<User,Any>(requestEncrypted) { it, user ->
 
             val isSalved = userImpl.saveUser(it!!)
 

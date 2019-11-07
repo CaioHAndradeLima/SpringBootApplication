@@ -3,11 +3,14 @@ package feature.lawOffice
 import com.mechanical.provider.UserProvider
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.toUUID
+import com.mechanical.cassandraRepository.impl.EventCassandraImpl
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LawOfficeEndpoint
 import com.mechanical.endpoint.LoginEndpoint
+import com.mechanical.provider.UserProvider.provideUser
+import com.mechanical.provider.UserProvider.provideUserAuthenticate
 import extensions.fromJson
 import extensions.mockJson
 import io.mockk.*
@@ -41,6 +44,9 @@ class LawOfficeEndpointTest {
     @MockBean
     lateinit var userRepository: UserRepository
 
+    @MockBean
+    lateinit var eventImpl: EventCassandraImpl
+
     @Test
     fun validGET() {
 
@@ -69,8 +75,8 @@ class LawOfficeEndpointTest {
 
 
         mockkObject(UserProvider)
+        every { UserProvider.provideUser() } returns user
         every { UserProvider.provideUserAuthenticate() } returns user.user
-
         //BDDMockito.given().willReturn(user.user)
 
         val result = mvc.perform(get("/api/lawOffice/jobs")

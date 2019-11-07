@@ -31,7 +31,10 @@ class ManagerProcessImpl {
                 if (it == StatusManagerProcess.SUCESSO || it == StatusManagerProcess.PENDENTE) {
 
                     val process = ProcessIntegration.requestProcessByLink(managerProcessCassandraModel.linkApi)
-                    return ManagerProcessResponse(process, managerProcessCassandraModel)
+
+                    if(process != null) {
+                        return ManagerProcessResponse(process, managerProcessCassandraModel)
+                    }
                 }
             }
 
