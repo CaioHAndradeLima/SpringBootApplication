@@ -3,6 +3,8 @@ package feature.login
 import com.mechanical.Application
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.EventCassandraImpl
+import com.mechanical.cassandraRepository.impl.ManagerProcessImpl
+import com.mechanical.cassandraRepository.impl.ProcessMonitoringImpl
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEndpoint
@@ -39,6 +41,12 @@ open class LoginEndpointTest {
 
     @MockBean
     lateinit var eventImpl: EventCassandraImpl
+
+    @MockBean
+    lateinit var processMonitoringImpl: ProcessMonitoringImpl
+
+    @MockBean
+    lateinit var managerProcess: ManagerProcessImpl
 
 
     /**

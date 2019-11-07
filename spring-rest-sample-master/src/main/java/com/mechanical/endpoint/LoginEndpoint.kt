@@ -1,6 +1,7 @@
 package com.mechanical.endpoint
 
 import com.google.gson.annotations.Expose
+import com.google.gson.annotations.SerializedName
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.impl.UserImpl
 import com.mechanical.security.AuthenticationToken
@@ -65,10 +66,10 @@ class LoginEndpoint {
 
 }
 
-data class LoginEntity(@NotNull @NotEmpty var emailOrCPF: String,
-                       @NotNull @NotEmpty var password: String,
-                       @NotNull @NotEmpty var macAddress: String,
-                       @NotNull @NotEmpty var keyOfRequests: String) {
+data class LoginEntity(@SerializedName("emailOrCPF") @NotNull @NotEmpty var emailOrCPF: String,
+                       @SerializedName("password") @NotNull @NotEmpty var password: String,
+                       @SerializedName("macAddress") @NotNull @NotEmpty var macAddress: String,
+                       @SerializedName("keyOfRequests") @NotNull @NotEmpty var keyOfRequests: String) {
     @Expose(serialize = false,deserialize = false) lateinit var user: User
 }
 

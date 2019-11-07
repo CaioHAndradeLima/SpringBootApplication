@@ -1,3 +1,3 @@
 package com.mechanical
 
-const val isDebug = true
+const val isDebug = false

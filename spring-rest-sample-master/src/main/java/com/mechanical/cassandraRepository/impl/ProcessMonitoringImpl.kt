@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component
 import java.lang.IllegalStateException
 
 @Component
-class ProcessMonitoringImpl {
+open class ProcessMonitoringImpl {
 
     @Autowired(required = true)
     lateinit var processMonitoringRepository: ProcessMonitoringRepository
