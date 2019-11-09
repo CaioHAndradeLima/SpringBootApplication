@@ -10,7 +10,7 @@ interface LawOfficeRepository : CassandraRepository<LawOffice, String> {
 
     fun findByCpfOwner(cpfOwner: String): List<LawOffice>
 
-    fun findByUuid(uuid: UUID): LawOffice
+    fun findByCpfOwnerAndUuid(cpfOwner: String, uuid: UUID): LawOffice
 /*
     @AllowFiltering
     @Nullable

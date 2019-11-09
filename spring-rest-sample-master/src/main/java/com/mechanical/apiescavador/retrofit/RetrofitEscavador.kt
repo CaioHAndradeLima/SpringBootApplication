@@ -1,25 +1,16 @@
 package com.mechanical.apiescavador.retrofit
 
-private lateinit var retrofitMethods: RequestRetrofitMethods
-private lateinit var retrofitLink: RequestRetrofitLink
+private val retrofitMethods: RequestRetrofitMethods = providerRetrofit()
+        .create(RequestRetrofitMethods::class.java)
+
+private val retrofitLink: RequestRetrofitLink  = providerRetrofit()
+        .create(RequestRetrofitLink::class.java)
 
 fun provideRetrofitEscavador(): RequestRetrofitMethods {
-    if (!::retrofitMethods.isInitialized)
-        return retrofitMethods
-
-    retrofitMethods = providerRetrofit()
-            .create(RequestRetrofitMethods::class.java)
-
     return retrofitMethods
 }
 
 fun provideRetrofitEscavadorWithoutLink(): RequestRetrofitLink {
-    if (!::retrofitLink.isInitialized)
-        return retrofitLink
-
-    retrofitLink = providerRetrofit()
-            .create(RequestRetrofitLink::class.java)
-
     return retrofitLink
 }
 

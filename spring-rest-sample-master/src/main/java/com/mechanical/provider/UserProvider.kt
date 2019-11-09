@@ -29,7 +29,7 @@ object UserProvider {
 
     fun provideLawOffices(user: UserCassandraModel, lawOfficeImpl: LawOfficeImpl): List<LawOffice>? {
         if (user.isLawyer) {
-            return lawOfficeImpl.getAllLawOfficeByUser(user.whereWork)
+            return lawOfficeImpl.getAllLawOfficeByUser(user)
         }
 
         return null

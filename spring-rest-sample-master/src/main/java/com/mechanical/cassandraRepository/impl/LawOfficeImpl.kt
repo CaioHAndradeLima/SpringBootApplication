@@ -1,7 +1,9 @@
 package com.mechanical.cassandraRepository.impl
 
+import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.toUUID
 import com.mechanical.cassandraRepository.model.LawOffice
+import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.core.getCoordinates
 import org.springframework.beans.factory.annotation.Autowired
@@ -32,17 +34,15 @@ class LawOfficeImpl {
         TODO()
     }
 
-    fun searchAllLawOffice() = lawOfficeRepository.findAll()
-
     fun getLawOfficeByCpfOwner(cpfOwner: String): List<LawOffice> {
         return lawOfficeRepository.findByCpfOwner(cpfOwner)
     }
 
-    fun getAllLawOfficeByUser(listUUID: Set<String> ): List<LawOffice> {
+    fun getAllLawOfficeByUser(user: UserCassandraModel): List<LawOffice> {
         val listLawOffice = mutableListOf<LawOffice>()
 
-        listUUID.forEach {
-            listLawOffice.add(lawOfficeRepository.findByUuid(it.toUUID()))
+        user.getListWhereWork().forEach {
+            listLawOffice.add(lawOfficeRepository.findByCpfOwnerAndUuid(it.cpfOwner, it.uuid.toUUID()))
         }
 
         return listLawOffice

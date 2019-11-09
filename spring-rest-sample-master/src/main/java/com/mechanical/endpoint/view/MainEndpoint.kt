@@ -3,6 +3,7 @@ package com.mechanical.endpoint.view
 import com.mechanical.cassandraRepository.impl.EventCassandraImpl
 import com.mechanical.cassandraRepository.impl.LawOfficeImpl
 import com.mechanical.endpoint.managerRequest
+import com.mechanical.endpoint.view.model.PagePrincipalOut
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.http.HttpStatus
@@ -32,7 +33,7 @@ class MainEndpoint {
             val user = it.user
 
             lawOfficeImpl.getAllLawOfficeByUser(
-                    user.whereWork
+                    user
             )
 
             val listEvents = eventImpl.searchEvents(

@@ -4,6 +4,7 @@ import com.mechanical.provider.UserProvider
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.toUUID
 import com.mechanical.cassandraRepository.impl.EventCassandraImpl
+import com.mechanical.cassandraRepository.impl.ProcessMonitoringImpl
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
@@ -47,6 +48,9 @@ class LawOfficeEndpointTest {
     @MockBean
     lateinit var eventImpl: EventCassandraImpl
 
+    @MockBean
+    lateinit var processManagerImpl: ProcessMonitoringImpl
+
     @Test
     fun validGET() {
 
@@ -71,7 +75,9 @@ class LawOfficeEndpointTest {
 
         val lawOffice = mockJson<LawOffice>("lawOffice.json")
         val user = mockJson<User>("user.json")
-        BDDMockito.given(lawRepository.findByUuid(user.user.whereWork.elementAt(0).toUUID())).willReturn(lawOffice)
+        val work = user.user.getListWhereWork()[0]
+
+        BDDMockito.given(lawRepository.findByCpfOwnerAndUuid(work.cpfOwner, work.uuid.toUUID())).willReturn(lawOffice)
 
 
         mockkObject(UserProvider)

@@ -33,7 +33,7 @@ open class ManagerProcessImpl {
                     val process = ProcessIntegration.requestProcessByLink(managerProcessCassandraModel.linkApi)
 
                     if(process != null) {
-                        return ManagerProcessResponse(process, managerProcessCassandraModel)
+                        return@searchProcess ManagerProcessResponse(process, managerProcessCassandraModel)
                     }
                 }
             }

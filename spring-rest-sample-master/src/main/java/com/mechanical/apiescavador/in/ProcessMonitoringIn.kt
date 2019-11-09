@@ -6,5 +6,9 @@ import com.google.gson.annotations.SerializedName
 data class ProcessMonitoringIn(
         @SerializedName("valor") var valor: String = "valor",
         @SerializedName("tipo") private val tipo: String = "UNICO",
-        @SerializedName("frequencia") private val frequencia: String = "SEMANAL"
+        @SerializedName("frequencia") private val frequencia: FREQUENCY = FREQUENCY.SEMANAL
 )
+
+enum class FREQUENCY {
+    SEMANAL, DIARIA
+}

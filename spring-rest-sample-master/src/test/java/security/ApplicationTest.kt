@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan
 
 @SpringBootApplication
 @EnableAutoConfiguration
-@ComponentScan(basePackages = ["com.mechanical.endpoint", "security"])
+@ComponentScan(basePackages = ["com.mechanical.endpoint", "security", "com.mechanical.endpoint.view"])
 open class ApplicationTest {
 
     companion object {

@@ -5,7 +5,7 @@ import java.util.*
 
 fun newInstanceLoginEntity(
         emailOrCPF: String = "44574551801",
-        password: String = "senha do cara",
+        password: String = "senha",
         macAddress: String = "23424r52",
         keyOfRequests: String = UUID.randomUUID().toString()
 ) = LoginEntity(

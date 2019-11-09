@@ -1,6 +1,7 @@
 package com.mechanical.cassandraRepository.impl
 
 import com.google.gson.annotations.SerializedName
+import com.mechanical.apiescavador.`in`.FREQUENCY
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.model.ProcessMonitoringCassandraModel
 import com.mechanical.cassandraRepository.repository.ProcessMonitoringRepository
@@ -69,9 +70,9 @@ open class ProcessMonitoringImpl {
     /**
      * register process monitoring and return true if it's on monitoring else otherwise
      */
-    fun registerMonitoringProccess(lawOffice: LawOffice, validNumberProcess: String): Boolean {
+    fun registerMonitoringProccess(lawOffice: LawOffice, validNumberProcess: String, frequencyMonitoring: FREQUENCY): Boolean {
 
-        val infoProcess = ManagerProcessIntegration.addMonitoring(validNumberProcess)
+        val infoProcess = ManagerProcessIntegration.addMonitoring(validNumberProcess, frequencyMonitoring)
 
         infoProcess?.let {
             addNewMonitoring(

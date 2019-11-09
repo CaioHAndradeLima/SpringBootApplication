@@ -24,10 +24,6 @@ class LawOfficeEndpoint {
     }
 
 
-    @GetMapping
-    fun getAllLawOffice() = ResponseEntity.ok(officeImpl.searchAllLawOffice())
-
-
    /**
     * return the law offices of the user work now
     */
@@ -35,12 +31,10 @@ class LawOfficeEndpoint {
    fun getAllLawOfficeOfJobUser(): ResponseEntity<*> {
        return managerRequest<Collection<LawOffice>> {
 
-           val list = UserProvider.provideUserAuthenticate()!!
-                   .whereWork
-
            val collection = officeImpl.getAllLawOfficeByUser(
-                   list
+                   it.user
            )
+
            return@managerRequest Pair(ResponseEntity.status(HttpStatus.OK), collection)
        }
    }
