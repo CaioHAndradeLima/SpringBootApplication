@@ -1,7 +1,7 @@
 {
   "user": {
     "cpf": "44574551801",
-    "isLawyer": false,
+    "isLawyer": true,
     "email": "caiohandradelima@gmail.com",
     "name": "Caio Henrique Andrade Lima",
     "maritalStatus": "Solteiro",
@@ -14,7 +14,7 @@
     "longitude": -46.353535,
     "street": "Rua imaculada",
     "CEP": "07183070",
-    "neighborhood": "JdSao Manoel",
+    "neighborhood": "Jd Sao Manoel",
     "identifierHome": "29",
     "state": "SP",
     "whereWork": "[{\"cpfOwner\":\"44574551801\",\"uuid\":\"b36c878b-41a9-441f-a001-ef4478c49733\"}]"

@@ -38,14 +38,15 @@ object UserProvider {
     fun provideIdIdentifierToProcessEvents(lawOfficeImpl: LawOfficeImpl): MutableList<String> {
         return if (UserProvider.provideUser()!!.user.isLawyer) {
             /**
-             * FIXME AQUI DEVERIA NA VERADE VER TODOS QUE TRABALHAM NESTE LAW OFFICE
+             * FIXME AQUI DEVERIA NA VERDADE VER TODOS QUE TRABALHAM NESTE LAW OFFICE
              * E MARCAR PROCESSO PARA TODOS
              */
             mutableListOf(
                     UserProvider.provideLoggedLawOffice(
                             UserProvider.provideUserAuthenticate()!!,
                             lawOfficeImpl = lawOfficeImpl
-                    ).uuid.toString()
+                    ).uuid.toString(),
+                    UserProvider.provideUser()!!.user.cpf
             )
         } else {
             mutableListOf(UserProvider.provideUser()!!.user.cpf)

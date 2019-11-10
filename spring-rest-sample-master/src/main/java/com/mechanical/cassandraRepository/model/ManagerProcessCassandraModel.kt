@@ -9,16 +9,17 @@ import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn
 import org.springframework.data.cassandra.core.mapping.Table
 import java.util.*
 
-@Table("ManagerProcessCassandraModel")
+@Table("managerProcess")
 data class ManagerProcessCassandraModel(
         val id: Int,
+        @PrimaryKeyColumn(name = "processNumber", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
         val processNumber: String,
         val status: StatusManagerProcess?,
         val sendCallback: String,
         val statusCallback: String?,
         val linkApi: String,
-        @PrimaryKeyColumn(name = "uuid", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
         @CassandraType(type = DataType.Name.UUID)
+        @PrimaryKeyColumn(name = "uuid", type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
         val uuid: UUID,
         val timeSearch: SearchType = SearchType.NEVER
 ) {

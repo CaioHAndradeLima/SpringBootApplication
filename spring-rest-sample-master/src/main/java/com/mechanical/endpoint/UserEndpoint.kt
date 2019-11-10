@@ -1,20 +1,22 @@
 package com.mechanical.endpoint
 
+import com.mechanical.cassandraRepository.impl.UserImpl
+import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.cassandraRepository.repository.UserRepository
+import com.mechanical.isDebug
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
+import retrofit2.http.POST
+import java.lang.IllegalStateException
 
 @RestController
 @RequestMapping("api/user")
 class UserEndpoint {
 
     @Autowired
-    private lateinit var repository: UserRepository
+    private lateinit var repository: UserImpl
 
     /*
         @RequestMapping(method = [RequestMethod.GET])
@@ -24,12 +26,13 @@ class UserEndpoint {
             return ResponseEntity(userSaved, HttpStatus.CREATED)
         }
     */
-    @GetMapping(value = ["/{cpf}"])
-    fun get(@PathVariable("cpf") cpf: String): ResponseEntity<*> {
 
-        val user = repository.findBycpf(cpf)
+    @PostMapping
+    fun updateUserToLawyer(@RequestBody user: UserCassandraModel) {
+        if(!isDebug)
+            throw IllegalStateException("error")
 
-        return ResponseEntity(user, HttpStatus.OK)
+        repository.updateUserToLawyer(user)
+
     }
-
 }

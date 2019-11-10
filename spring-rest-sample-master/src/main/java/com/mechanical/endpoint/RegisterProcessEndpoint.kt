@@ -57,13 +57,15 @@ class RegisterProcessEndpoint {
                 eventImpl.addNewEvents(processEscavadorModel)
                 registerProcessOut.wasFoundThisProcess = true
 
-                val monitoringIsRegistered = processManagerImpl.registerMonitoringProccess(
-                        provideLoggedLawOffice(user.user, lawOfficeImpl),
-                        processEscavadorModel.numero_processo,
-                        it.frequency ?: FREQUENCY.SEMANAL
-                )
+                if(it.isNeededRegister) {
+                    val monitoringIsRegistered = processManagerImpl.registerMonitoringProccess(
+                            provideLoggedLawOffice(user.user, lawOfficeImpl),
+                            processEscavadorModel.numero_processo,
+                            it.frequency ?: FREQUENCY.SEMANAL
+                    )
 
-                registerProcessOut.wasRegisteredToSeeMovementOfThisProcess = monitoringIsRegistered
+                    registerProcessOut.wasRegisteredToSeeMovementOfThisProcess = monitoringIsRegistered
+                }
             }
 
             Pair(ResponseEntity.status(HttpStatus.OK), registerProcessOut)

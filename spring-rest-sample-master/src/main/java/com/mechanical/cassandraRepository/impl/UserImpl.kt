@@ -2,6 +2,7 @@ package com.mechanical.cassandraRepository.impl
 
 import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.isJustNumber
+import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LoginEntity
 import org.springframework.beans.factory.annotation.Autowired
@@ -31,6 +32,13 @@ open class UserImpl {
         }) ?: return null
 
         return User(userModel)
+    }
+
+    fun updateUserToLawyer(user: UserCassandraModel) {
+        user.isLawyer = false
+        userRepository.delete(user)
+        user.isLawyer = true
+        userRepository.save(user)
     }
 
     fun saveUser(user: User): Boolean {
