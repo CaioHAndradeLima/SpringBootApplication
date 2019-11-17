@@ -1,6 +1,5 @@
 package com.mechanical.cassandraRepository.impl
 
-import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.extensions.toUUID
 import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.cassandraRepository.model.UserCassandraModel

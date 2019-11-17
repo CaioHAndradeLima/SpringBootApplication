@@ -10,8 +10,6 @@ import com.mechanical.cassandraRepository.repository.LawOfficeRepository
 import com.mechanical.cassandraRepository.repository.UserRepository
 import com.mechanical.endpoint.LawOfficeEndpoint
 import com.mechanical.endpoint.LoginEndpoint
-import com.mechanical.provider.UserProvider.provideUser
-import com.mechanical.provider.UserProvider.provideUserAuthenticate
 import extensions.fromJson
 import extensions.mockJson
 import io.mockk.*

@@ -4,7 +4,7 @@ class ProcessEscavadorModel(
         var id: Int,
         var numero_processo: String,
         var status: String,
-        var resposta: RespostaEscavadorModel,
+        var resposta: RespostaEscavadorModel?,
         var enviar_callback: String,
         var status_callback: String,
         var link_api: String,
@@ -69,12 +69,12 @@ class PartesEscavadorModel(
         var nome: String,
         var principal: Boolean,
         var polo: Any,
-        var documento: DocumentoEscavadorModel
+        var documento: DocumentoEscavadorModel?
 )
 
 class DocumentoEscavadorModel(
-        var tipo: Any,
-        var numero: Any
+        var tipo: Any?,
+        var numero: Any?
 )
 
 class MovimentacoesEscavadorModel(

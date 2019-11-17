@@ -4,13 +4,14 @@ import com.mechanical.apiescavador.out.ProcessEscavadorModel
 import com.mechanical.cassandraRepository.model.event.modelEvent.Movimentation
 
 fun convertProcessEscavadorModelToMovimentations(processEscavador: ProcessEscavadorModel): Pair<String, MutableList<Movimentation>>? {
-    if (processEscavador.resposta.instancias.isNullOrEmpty()) {
+    val instancias = processEscavador.resposta?.instancias
+    if (instancias.isNullOrEmpty()) {
         return null
     }
 
     val listMovimentation = mutableListOf<Movimentation>()
 
-    for (instancia in processEscavador.resposta.instancias) {
+    for (instancia in instancias) {
         for (movimentacao in instancia.movimentacoes) {
             listMovimentation.add(
                     Movimentation(

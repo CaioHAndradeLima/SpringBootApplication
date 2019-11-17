@@ -1,10 +1,8 @@
 package com.mechanical.endpoint
 
 import com.mechanical.apiescavador.`in`.FREQUENCY
-import com.mechanical.cassandraRepository.impl.EventCassandraImpl
-import com.mechanical.cassandraRepository.impl.LawOfficeImpl
-import com.mechanical.cassandraRepository.impl.ManagerProcessImpl
-import com.mechanical.cassandraRepository.impl.ProcessMonitoringImpl
+import com.mechanical.cassandraRepository.convert.convertProcessEscavadorModelToProcessCassandraModel
+import com.mechanical.cassandraRepository.impl.*
 import com.mechanical.endpoint.view.model.RegisterProcessOut
 import com.mechanical.model.ProcessNumberIn
 import com.mechanical.provider.UserProvider
@@ -34,6 +32,9 @@ class RegisterProcessEndpoint {
     @Autowired
     lateinit var lawOfficeImpl: LawOfficeImpl
 
+    @Autowired
+    lateinit var processImpl: ProcessCassandraImpl
+
     @PostMapping
     fun registerProcess(@RequestBody jsonProcessNumber: String): ResponseEntity<*> {
         return managerRequest<ProcessNumberIn, RegisterProcessOut>(jsonProcessNumber) { it, user ->
@@ -54,17 +55,21 @@ class RegisterProcessEndpoint {
             registerProcessOut.errorExternalApi = false
 
             processInfo.process?.let { processEscavadorModel ->
-                eventImpl.addNewEvents(processEscavadorModel)
-                registerProcessOut.wasFoundThisProcess = true
+                processEscavadorModel.resposta?.let {respostaEscavador ->
+                    processImpl.save(convertProcessEscavadorModelToProcessCassandraModel(processEscavadorModel.numero_processo, respostaEscavador))
+                    eventImpl.addNewEvents(processEscavadorModel)
 
-                if(it.isNeededRegister) {
-                    val monitoringIsRegistered = processManagerImpl.registerMonitoringProccess(
-                            provideLoggedLawOffice(user.user, lawOfficeImpl),
-                            processEscavadorModel.numero_processo,
-                            it.frequency ?: FREQUENCY.SEMANAL
-                    )
+                    registerProcessOut.wasFoundThisProcess = true
 
-                    registerProcessOut.wasRegisteredToSeeMovementOfThisProcess = monitoringIsRegistered
+                    if (it.isNeededRegister) {
+                        val monitoringIsRegistered = processManagerImpl.registerMonitoringProccess(
+                                provideLoggedLawOffice(user.user, lawOfficeImpl),
+                                processEscavadorModel.numero_processo,
+                                it.frequency ?: FREQUENCY.SEMANAL
+                        )
+
+                        registerProcessOut.wasRegisteredToSeeMovementOfThisProcess = monitoringIsRegistered
+                    }
                 }
             }
 
@@ -78,5 +83,11 @@ class RegisterProcessEndpoint {
 
         @Bean
         fun getManagerProcessImpl() = ManagerProcessImpl()
+
+        @Bean
+        fun getEventProcessCassandraImpl() = EventProcessCassandraImpl()
+
+        @Bean
+        fun getProcessCassandraImpl() = ProcessCassandraImpl()
     }
 }
