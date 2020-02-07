@@ -35,25 +35,8 @@ object ManagerProcessEscavador {
                     }
         }
 
-        //return processInfoManager
-
-        return provideGson()
-                .fromJson(json,ManagerProcessEscavadorOut::class.java)
+        return processInfoManager
     }
-    val json = "{\n" +
-            "  \"id\": 40,\n" +
-            "  \"numero_processo\": \"0000000-00.2019.8.26.0000\",\n" +
-            "  \"status\": \"PENDENTE\",\n" +
-            "  \"resposta\": null,\n" +
-            "  \"enviar_callback\": \"SIM\",\n" +
-            "  \"status_callback\": null,\n" +
-            "  \"link_api\": \"https://api.escavador.com/api/v1/async/resultados/40\",\n" +
-            "  \"created_at\": {\n" +
-            "    \"date\": \"2019-02-27 20:58:00.000000\",\n" +
-            "    \"timezone_type\": 3,\n" +
-            "    \"timezone\": \"UTC\"\n" +
-            "  }\n" +
-            "}"
 
     fun requestToEscavadorAddMonitoring(numberProcesss: String, frequencyMonitoring: FREQUENCY): ProcessMonitoringOut? {
         var processMonitoringOut: ProcessMonitoringOut? = null

@@ -29,7 +29,7 @@ interface RequestRetrofitMethods {
 
 interface RequestRetrofitLink {
 
-    @POST
+    @GET
     fun requestProcess(@Url url: String) : Observable<Response<ProcessEscavadorModel>>
 
 }

@@ -16,14 +16,11 @@ data class UserCassandraModel constructor(
         @PrimaryKeyColumn(name = "email", ordinal = 1, type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
         var email: String,
         var name: String,
-        var maritalStatus: String,
         var phone: String,
         var additionalInfo: String,
-        var qualificationPart: String,
         var password: String,
         var oab: String?,
         @Transient var listFiles: Set<String>?,
-
         var latitude: Double,
         var longitude: Double,
         var street: String,

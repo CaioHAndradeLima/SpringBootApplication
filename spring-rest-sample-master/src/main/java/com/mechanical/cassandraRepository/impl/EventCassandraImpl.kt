@@ -1,9 +1,11 @@
 package com.mechanical.cassandraRepository.impl
 
 import com.mechanical.apiescavador.out.ProcessEscavadorModel
+import com.mechanical.cassandraRepository.User
 import com.mechanical.cassandraRepository.convert.convertProcessEscavadorModelToAudiencias
 import com.mechanical.cassandraRepository.convert.convertProcessEscavadorModelToMovimentations
 import com.mechanical.cassandraRepository.extensions.formatToDate
+import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.cassandraRepository.model.event.EventCassandraModel
 import com.mechanical.cassandraRepository.model.event.EventProcessCassandraModel
 import com.mechanical.cassandraRepository.model.event.EventProcessInfoModel
@@ -39,8 +41,8 @@ open class EventCassandraImpl {
         return eventProcessImpl.findToShow(listEvent)
     }
 
-    fun addNewEvents(processEscavador: ProcessEscavadorModel) {
-        val listIdentifier = provideIdIdentifierToProcessEvents(lawOfficeImpl)
+    fun addNewEvents(processEscavador: ProcessEscavadorModel, user: UserCassandraModel) {
+        val listIdentifier = provideIdIdentifierToProcessEvents(lawOfficeImpl, user)
         val listAudiencias = convertProcessEscavadorModelToAudiencias(processEscavador);
         val listMovimentations = convertProcessEscavadorModelToMovimentations(processEscavador)
 

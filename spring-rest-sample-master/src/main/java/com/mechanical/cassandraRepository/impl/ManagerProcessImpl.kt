@@ -43,7 +43,6 @@ open class ManagerProcessImpl {
 
         return managerProcessCassandraModel
     }
-
 }
 
 data class ManagerProcessResponse(

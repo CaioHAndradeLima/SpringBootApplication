@@ -1,0 +1,9 @@
+
+drop keyspace test ;
+CREATE KEYSPACE IF NOT EXISTS test WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '3' };
+
+
+
+Insert into test.user (cpf, isLawyer, email, name, phone,additionalInfo, password, oab, listFiles, latitude, longitude, street, CEP, neighborhood, identifierHome, state,whereWork) values (
+'44574551801', true, 'caiohandradelima@gmail.com',  'Caio Henrique',  '11 968467467',  '',  'senha','12345', null, -23.2424242425, -46.353535,  'Rua imaculada', '07183070', 'Jd Sao Manoel', '29', 'SP', '[{"cpfOwner":"44574551801","uuid":"b36c878b-41a9-441f-a001-ef4478c49733"}]');
+

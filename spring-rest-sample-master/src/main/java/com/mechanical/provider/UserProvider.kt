@@ -35,21 +35,21 @@ object UserProvider {
         return null
     }
 
-    fun provideIdIdentifierToProcessEvents(lawOfficeImpl: LawOfficeImpl): MutableList<String> {
-        return if (UserProvider.provideUser()!!.user.isLawyer) {
+    fun provideIdIdentifierToProcessEvents(lawOfficeImpl: LawOfficeImpl, user: UserCassandraModel): MutableList<String> {
+        return if (user.isLawyer) {
             /**
              * FIXME AQUI DEVERIA NA VERDADE VER TODOS QUE TRABALHAM NESTE LAW OFFICE
              * E MARCAR PROCESSO PARA TODOS
              */
             mutableListOf(
                     UserProvider.provideLoggedLawOffice(
-                            UserProvider.provideUserAuthenticate()!!,
+                            user,
                             lawOfficeImpl = lawOfficeImpl
                     ).uuid.toString(),
-                    UserProvider.provideUser()!!.user.cpf
+                    user.cpf
             )
         } else {
-            mutableListOf(UserProvider.provideUser()!!.user.cpf)
+            mutableListOf(user.cpf)
         }
 
     }

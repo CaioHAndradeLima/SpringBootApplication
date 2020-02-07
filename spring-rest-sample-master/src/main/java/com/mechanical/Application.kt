@@ -2,6 +2,7 @@ package com.mechanical
 
 import com.mechanical.cassandraRepository.model.UserCassandraModel
 import com.mechanical.cassandraRepository.model.Work
+import com.mechanical.endpoint.RegisterProcessEndpoint.Companion.routine
 import com.mechanical.infix_utils.toJson
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration
@@ -18,6 +19,7 @@ open class Application {
         @JvmStatic
         fun main(args: Array<String>) {
             SpringApplication.run(Application::class.java, *args)
+            routine()
         }
 
         fun showUser() {
@@ -28,10 +30,8 @@ open class Application {
                     true,
                     "caiohandradelima@gmail.com",
                     "Caio Henrique Andrade Lima",
-                    "Solteiro",
                     "11 968467467",
                     "additional",
-                    "cliente",
                     "senha",
                     "2442",
                     listFiles,

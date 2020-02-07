@@ -1,9 +1,11 @@
 package com.mechanical.apiescavador.out
 
+import com.mechanical.cassandraRepository.model.StatusManagerProcess
+
 class ProcessEscavadorModel(
         var id: Int,
         var numero_processo: String,
-        var status: String,
+        var status: StatusManagerProcess,
         var resposta: RespostaEscavadorModel?,
         var enviar_callback: String,
         var status_callback: String,

@@ -1,6 +1,5 @@
 package com.mechanical.endpoint
 
-import com.mechanical.provider.UserProvider
 import com.mechanical.cassandraRepository.impl.LawOfficeImpl
 import com.mechanical.cassandraRepository.model.LawOffice
 import org.springframework.beans.factory.annotation.Autowired

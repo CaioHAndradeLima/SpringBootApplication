@@ -14,7 +14,7 @@ data class ManagerProcessCassandraModel(
         val id: Int,
         @PrimaryKeyColumn(name = "processNumber", type = PrimaryKeyType.PARTITIONED, ordering = Ordering.DESCENDING)
         val processNumber: String,
-        val status: StatusManagerProcess?,
+        var status: StatusManagerProcess?,
         val sendCallback: String,
         val statusCallback: String?,
         val linkApi: String,
