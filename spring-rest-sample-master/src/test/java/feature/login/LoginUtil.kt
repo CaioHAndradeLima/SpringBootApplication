@@ -1,7 +1,7 @@
 package feature.login
 
-import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.repository.UserRepository
+import com.mechanical.cassandraRepository.WorkerSession
+import com.mechanical.cassandraRepository.repository.WorkerRepository
 import com.mechanical.infix_utils.toJson
 import mocks.newInstanceLoginEntity
 import org.mockito.BDDMockito
@@ -11,10 +11,10 @@ import org.springframework.test.web.servlet.ResultActions
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 
-fun doLogin(user: User, userRepository: UserRepository, mvc: MockMvc): ResultActions {
+fun doLogin(workerSession: WorkerSession, workerRepository: WorkerRepository, mvc: MockMvc): ResultActions {
     val newInstanceLoginEntity = newInstanceLoginEntity()
-    BDDMockito.given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
-            user.user
+    BDDMockito.given(workerRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(
+            workerSession.worker
     )
 
     return mvc.perform(MockMvcRequestBuilders.post("/loginapi")

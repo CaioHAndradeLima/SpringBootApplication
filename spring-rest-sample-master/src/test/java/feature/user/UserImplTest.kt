@@ -1,8 +1,8 @@
 package feature.user
 
 import com.mechanical.Application
-import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.impl.UserImpl
+import com.mechanical.cassandraRepository.WorkerSession
+import com.mechanical.cassandraRepository.impl.WorkerImpl
 import extensions.mockJson
 import mocks.newInstanceLoginEntity
 import org.junit.Assert.assertEquals
@@ -24,32 +24,32 @@ class UserImplTest {
     }
 
     @Autowired
-    lateinit var userImpl: UserImpl
+    lateinit var workerImpl: WorkerImpl
 
     @Test
     fun whenAddTheUser_AddressIsAddedToo() {
-        val user = mockJson<User>("user.json")
-        userImpl.saveUser(user)
+        val user = mockJson<WorkerSession>("user.json")
+        workerImpl.saveUser(user)
 
         var loginEntity = newInstanceLoginEntity()
 
         //test case success (cpf correct + password correct)
-        val userCorrect = userImpl.getAllUser(loginEntity)
+        val userCorrect = workerImpl.getAllUser(loginEntity)
         assertEquals(userCorrect, user)
 
         //test case success (email correct + password correct)
         loginEntity = newInstanceLoginEntity(emailOrCPF = "caiohandradelima@gmail.com")
-        val allUserEmailCorrect = userImpl.getAllUser(loginEntity)
+        val allUserEmailCorrect = workerImpl.getAllUser(loginEntity)
         assertEquals(user, allUserEmailCorrect)
 
         //test case failied(cpf correct + password wrong)
         loginEntity = newInstanceLoginEntity(password = "24244")
-        val allUserPassowrdWrong = userImpl.getAllUser(loginEntity)
+        val allUserPassowrdWrong = workerImpl.getAllUser(loginEntity)
         assertEquals(null, allUserPassowrdWrong)
 
         //test case failied(emailOrCpf wrong + password correct)
         loginEntity = newInstanceLoginEntity(emailOrCPF = "24244")
-        val allUserCPFWrong = userImpl.getAllUser(loginEntity)
+        val allUserCPFWrong = workerImpl.getAllUser(loginEntity)
         assertEquals(null, allUserCPFWrong)
     }
 }

@@ -1,20 +1,29 @@
 package com.mechanical.endpoint
 
 import com.google.gson.Gson
-import com.mechanical.cassandraRepository.User
+import com.mechanical.cassandraRepository.WorkerSession
 import org.springframework.http.ResponseEntity
 
 import com.mechanical.infix_utils.toJson
-import com.mechanical.provider.UserProvider.provideUser
+import com.mechanical.provider.WorkerProvider.provideUser
 import org.springframework.http.HttpStatus
 
 val gson = Gson()
 
-inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T?, user: User) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
 
-    val user = provideUser() ?: return ResponseEntity.status(
-            HttpStatus.FORBIDDEN
-    ).build<Unit>()
+inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T, workerSession: WorkerSession?) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
+    return managerRequest(jsonEncrypted, call, false)
+}
+
+
+inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T, workerSession: WorkerSession?) -> Pair<ResponseEntity.BodyBuilder, Y?>, hasSession: Boolean = false): ResponseEntity<*> {
+    val user = if(hasSession) {
+         provideUser() ?: return ResponseEntity.status(
+                HttpStatus.FORBIDDEN
+        ).build<Unit>()
+    } else {
+        null
+    }
 
     val entity = gson.fromJson(
             decrypt(jsonEncrypted),
@@ -23,19 +32,28 @@ inline fun <reified T, Y> managerRequest(jsonEncrypted: String, call: (it: T?, u
 
     val pair = call(entity, user)
 
-    pair.second?.let {
-        val jsonEncrypted = encrypt(it!!.toJson())
-        pair.first.body(jsonEncrypted)
+    pair.second?.let { y ->
+        val jsonEncryptedReturn = encrypt(y!!.toJson())
+        return@managerRequest pair.first.body(jsonEncryptedReturn)
     }
 
     return pair.first.build<Y>()
 }
 
-inline fun <reified Y> managerRequest(call: (it: User) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
 
-    val user = provideUser() ?: return ResponseEntity.status(
-            HttpStatus.FORBIDDEN
-    ).build<Unit>()
+inline fun <reified Y> managerRequest(call: (it: WorkerSession?) -> Pair<ResponseEntity.BodyBuilder, Y?>): ResponseEntity<*> {
+    return managerRequest(call, false)
+}
+
+inline fun <reified Y> managerRequest(call: (it: WorkerSession?) -> Pair<ResponseEntity.BodyBuilder, Y?>, hasSession: Boolean = false): ResponseEntity<*> {
+
+    val user = if(hasSession) {
+        provideUser() ?: return ResponseEntity.status(
+                HttpStatus.FORBIDDEN
+        ).build<Unit>()
+    } else {
+        null
+    }
 
     val pair = call(user)
 

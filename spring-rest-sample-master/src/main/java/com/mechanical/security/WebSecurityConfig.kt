@@ -37,7 +37,7 @@ open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
         val security = yourHttp.authorizeRequests()
 
         if (usingSecurity) {
-            security.antMatchers("/api/**").authenticated()
+            security.antMatchers("/session/**").authenticated()
         }
 
         security.anyRequest()
@@ -80,7 +80,7 @@ class DemoAuthenticationFilter : OncePerRequestFilter() {
     } */
 
 /*
-        // The token is 'valid' so magically get a user id from it
+        // The token is 'valid' so magically get a workerSession id from it
         val id = getUserUUIDFromToken(xAuth)
         // Create our Authentication and let Spring know about it
         val auth = AuthenticationToken(id)

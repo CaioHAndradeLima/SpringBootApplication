@@ -1,8 +1,6 @@
 package feature.lawOffice
 
 import com.mechanical.Application
-import com.mechanical.cassandraRepository.impl.LawOfficeImpl
-import com.mechanical.cassandraRepository.model.LawOffice
 import extensions.mockJson
 import org.junit.Assert.assertEquals
 import org.junit.Test

@@ -18,7 +18,7 @@ import java.util.List;
 @EnableCassandraRepositories()
 public class CassandraConfig extends AbstractCassandraConfiguration {
 
-    public static final String KEYSPACE = "test";
+    public static final String KEYSPACE = "workapp";
 
     @Override
     public SchemaAction getSchemaAction() {
@@ -45,7 +45,7 @@ public class CassandraConfig extends AbstractCassandraConfiguration {
      */
     @Override
     protected List<String> getStartupScripts() {
-        return Collections.singletonList("CREATE KEYSPACE IF NOT EXISTS test WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '3' };");
+        return Collections.singletonList("CREATE KEYSPACE IF NOT EXISTS workapp WITH replication = { 'class': 'SimpleStrategy', 'replication_factor': '3' };");
     }
 
     @Override

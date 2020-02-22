@@ -1,16 +1,11 @@
 package feature.lawOffice
 
-import com.mechanical.provider.UserProvider
-import com.mechanical.cassandraRepository.User
+import com.mechanical.provider.WorkerProvider
+import com.mechanical.cassandraRepository.WorkerSession
 import com.mechanical.cassandraRepository.extensions.toUUID
-import com.mechanical.cassandraRepository.impl.EventCassandraImpl
 import com.mechanical.cassandraRepository.impl.ProcessMonitoringImpl
-import com.mechanical.cassandraRepository.model.LawOffice
-import com.mechanical.cassandraRepository.repository.LawOfficeRepository
-import com.mechanical.cassandraRepository.repository.UserRepository
-import com.mechanical.endpoint.LawOfficeEndpoint
+import com.mechanical.cassandraRepository.repository.WorkerRepository
 import com.mechanical.endpoint.LoginEndpoint
-import extensions.fromJson
 import extensions.mockJson
 import io.mockk.*
 import junit.framework.Assert.assertEquals
@@ -41,7 +36,7 @@ class LawOfficeEndpointTest {
     lateinit var lawRepository: LawOfficeRepository
 
     @MockBean
-    lateinit var userRepository: UserRepository
+    lateinit var workerRepository: WorkerRepository
 
     @MockBean
     lateinit var eventImpl: EventCassandraImpl
@@ -72,16 +67,16 @@ class LawOfficeEndpointTest {
     fun validJobs() {
 
         val lawOffice = mockJson<LawOffice>("lawOffice.json")
-        val user = mockJson<User>("user.json")
-        val work = user.user.getListWhereWork()[0]
+        val user = mockJson<WorkerSession>("user.json")
+        val work = user.worker.getListWhereWork()[0]
 
         BDDMockito.given(lawRepository.findByCpfOwnerAndUuid(work.cpfOwner, work.uuid.toUUID())).willReturn(lawOffice)
 
 
-        mockkObject(UserProvider)
-        every { UserProvider.provideUser() } returns user
-        every { UserProvider.provideUserAuthenticate() } returns user.user
-        //BDDMockito.given().willReturn(user.user)
+        mockkObject(WorkerProvider)
+        every { WorkerProvider.provideUser() } returns user
+        every { WorkerProvider.provideUserAuthenticate() } returns user.worker
+        //BDDMockito.given().willReturn(workerSession.workerSession)
 
         val result = mvc.perform(get("/api/lawOffice/jobs")
                 .contentType(MediaType.APPLICATION_JSON))

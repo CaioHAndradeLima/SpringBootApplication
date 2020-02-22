@@ -1,0 +1,1086 @@
+[
+  {
+    "uuid": "a564c9b9-df92-433a-9ca4-f8ffec5ffdb4",
+    "name": "Acupunturista"
+  },
+  {
+    "uuid": "c4361d86-2676-4a87-9438-5c5ae49878db",
+    "name": "Adesivador(a) Envelopamento (carros)"
+  },
+  {
+    "uuid": "4fcba2b5-57c8-4af5-a249-1d777a4ae47c",
+    "name": "Adesivador(a) Película (carros e vidros em geral)"
+  },
+  {
+    "uuid": "9a8826c0-6ff1-4642-a224-6da3dcd22b60",
+    "name": "Advogado(a) Cível"
+  },
+  {
+    "uuid": "e9880be1-7c22-4fa7-a041-cb7bb553723b",
+    "name": "Advogado(a) Consumidor"
+  },
+  {
+    "uuid": "0568d6d2-65a7-45ef-a163-0903c07530f0",
+    "name": "Advogado(a) Criminal"
+  },
+  {
+    "uuid": "a1b4a4d5-7735-4ea8-9c8b-9e9bf2cad50a",
+    "name": "Advogado(a) Contratos"
+  },
+  {
+    "uuid": "88845dab-debd-494f-8784-fa7885aeafed",
+    "name": "Advogado(a) Família"
+  },
+  {
+    "uuid": "5b088c21-2341-484d-b2de-60d7a7d16e2b",
+    "name": "Advogado(a) Empresarial"
+  },
+  {
+    "uuid": "e7a2abc1-4aba-4f9f-ac29-6dde65d2ebb8",
+    "name": "Advogado(a) Imobiliário"
+  },
+  {
+    "uuid": "14ed6b7a-6e12-4a75-8fdf-5abc6679fd30",
+    "name": "Advogado(a) Saúde"
+  },
+  {
+    "uuid": "fedb4569-51c9-4fca-b128-3045e1039fcf",
+    "name": "Advogado(a) Trabalhista"
+  },
+  {
+    "uuid": "0cdcbcce-eaa9-49ed-8341-3798b6820241",
+    "name": "Advogado(a) Tributário"
+  },
+  {
+    "uuid": "e68e3822-8b91-4ab2-aa72-d4c0b2f269c2",
+    "name": "Alfaiate Masculino (sob medida)"
+  },
+  {
+    "uuid": "754023aa-ae1a-4376-b850-7933f8f29231",
+    "name": "Animador(a) de Festa Infantil "
+  },
+  {
+    "uuid": "6ebce897-522f-41e8-8213-acf15a4a758b",
+    "name": "Arquiteto(a)"
+  },
+  {
+    "uuid": "77b5bd1d-5db4-4f4a-aebc-9d91b7dc6f28",
+    "name": "Astrólogo(a)"
+  },
+  {
+    "uuid": "cb53e3a2-1d1f-425e-96f9-3041f5fd7328",
+    "name": "Babá"
+  },
+  {
+    "uuid": "b9792195-3b5a-41b2-80c5-9c1a6d94f354",
+    "name": "Banda Musical"
+  },
+  {
+    "uuid": "5523b8ea-b3ca-4974-ac5a-6c3450709857",
+    "name": "Barbeiro"
+  },
+  {
+    "uuid": "5fb412ef-4b24-4faf-b31f-893f26d08613",
+    "name": "Barman"
+  },
+  {
+    "uuid": "abc49a9e-f031-4dd2-b4ea-97a541b1faba",
+    "name": "Cabeleireiro(a)"
+  },
+  {
+    "uuid": "5ed32b45-5de9-4990-9698-06b2510f39d0",
+    "name": "Calceiro(a) sob medida"
+  },
+  {
+    "uuid": "918526d0-ef9d-46e5-a175-21366fa3a610",
+    "name": "Cantor(a) Vocalista"
+  },
+  {
+    "uuid": "bcf69146-fb0b-4fb8-add8-40206316ce19",
+    "name": "Carreto Perua "
+  },
+  {
+    "uuid": "e4af6398-00d0-41af-820d-80802cb696ac",
+    "name": "Carreto Caminhão"
+  },
+  {
+    "uuid": "82d5be3f-6a6c-4dd9-a5df-d24532bca8c2",
+    "name": "Chaveiro(a)"
+  },
+  {
+    "uuid": "d233f67e-4a22-48c0-b657-fe3d634d8778",
+    "name": "Colocador(a) de pisos, azulejos, pastilhas, etc."
+  },
+  {
+    "uuid": "1410bed2-ebac-44bd-8509-0dc8d47ac939",
+    "name": "Churrasqueiro(a)"
+  },
+  {
+    "uuid": "6ff2aa93-3545-4010-9792-0ba6ffa373dd",
+    "name": "Confeiteiro(a) Doceiro(a)"
+  },
+  {
+    "uuid": "69ffa2f7-822b-4bf8-adb1-8de73d1d9c87",
+    "name": "Costureira(o) Reformas Roupas"
+  },
+  {
+    "uuid": "86d090d6-9292-4617-bddf-be5022bf3f16",
+    "name": "Consultor(a) Ambiental"
+  },
+  {
+    "uuid": "9e8877c9-7f9f-4d82-967b-18a212599a39",
+    "name": "Consultor(a) Bolsa de Valores"
+  },
+  {
+    "uuid": "646383e8-8a1d-4fe5-9127-960114d6d718",
+    "name": "Consultor(a) Comércio Exterior"
+  },
+  {
+    "uuid": "dd8d8fbf-4a0f-491c-87e2-99b4699fa25f",
+    "name": "Consultor(a) Estética "
+  },
+  {
+    "uuid": "b812dfb3-239f-4f36-8df1-db72125843b8",
+    "name": "Consultor(a) Eventos"
+  },
+  {
+    "uuid": "e40322aa-d308-42fd-a672-64fcac22bb38",
+    "name": "Consultor(a) Franchising"
+  },
+  {
+    "uuid": "3e4b61c8-4910-406a-86a8-37532e1bee55",
+    "name": "Consultor (a) Investimentos"
+  },
+  {
+    "uuid": "d29c105c-4af7-4531-8ee5-761801d1c08f",
+    "name": "Consultor (a) de Marketing"
+  },
+  {
+    "uuid": "d36f0259-9b5e-4ba2-a428-6e25363eb61b",
+    "name": "Consultor(a) Moda"
+  },
+  {
+    "uuid": "d4de2065-07cd-4b72-a61d-3e329e50f1e3",
+    "name": "Consultor(a) Pedagógico"
+  },
+  {
+    "uuid": "97962c7d-e8d8-42e5-a474-9d72ba4ee847",
+    "name": "Consultor(a) Planejamento Estratégico"
+  },
+  {
+    "uuid": "15fcd407-9795-45ac-b7a2-ae4d0ed99bd9",
+    "name": "Consultor(a) Recursos Humanos"
+  },
+  {
+    "uuid": "f2b35c99-f68f-457f-9848-c1020b2c6b31",
+    "name": "Consultor(a) Tecnologia da Informação (TI)"
+  },
+  {
+    "uuid": "36535afb-c926-4f2e-a7cc-99bbd730109a",
+    "name": "Consultor(a) Treinamento e Desenvolvimento"
+  },
+  {
+    "uuid": "ec0333fc-f9e7-4371-bb99-fd3898aef3e1",
+    "name": "Consultor(a) de Vendas"
+  },
+  {
+    "uuid": "4861b868-22c8-43c6-9406-4e5d4d100d79",
+    "name": "Consultor(a) Empresarial"
+  },
+  {
+    "uuid": "4a903544-f6ca-485b-94f5-8d5f47bf2a45",
+    "name": "Consultor(a) Financeiro"
+  },
+  {
+    "uuid": "7b86c31d-07f0-422c-adac-69dc6ee716f7",
+    "name": "Consultor(a) Fiscal"
+  },
+  {
+    "uuid": "0cf0dab9-462b-4638-912d-4cd092f4f37a",
+    "name": "Consultor(a) Gastronômico"
+  },
+  {
+    "uuid": "68f6f3f4-9ef5-4c15-bf5b-16d60e2433bd",
+    "name": "Consultor(a) Jurídico"
+  },
+  {
+    "uuid": "68e13524-d93a-492f-a713-07b04d2e5913",
+    "name": "Consultor(a) Segurança"
+  },
+  {
+    "uuid": "0d0b0f5e-74a9-425b-a570-b27bb3d8b093",
+    "name": "Consultor(a) Tributário"
+  },
+  {
+    "uuid": "c302fedf-9be0-4eb7-b0b6-8f30751dad85",
+    "name": "Consultor(a) de Viagem"
+  },
+  {
+    "uuid": "cbbbc302-71c1-436d-92b4-8c757fb1a34a",
+    "name": "Contador(a)"
+  },
+  {
+    "uuid": "3f342e22-c61a-4a22-b110-0684b529ffdd",
+    "name": "Corretor de Imóveis"
+  },
+  {
+    "uuid": "0a6b3829-b940-4967-9277-582ac559fd0f",
+    "name": "Corretor de Seguros"
+  },
+  {
+    "uuid": "1dc6ffda-1a1f-4a72-ad83-0d8e67eb2822",
+    "name": "Cozinheiro(a)"
+  },
+  {
+    "uuid": "3bf978c8-6b96-4642-bd68-1c690e8235de",
+    "name": "Decorador(a) Interior"
+  },
+  {
+    "uuid": "25ff780c-e182-445a-ad40-8d226c4daac4",
+    "name": "Decorador(a) Festas e Eventos"
+  },
+  {
+    "uuid": "b2ff7f35-3ae1-428b-a5d2-3abb8b582385",
+    "name": "Decorador(a) Lojas"
+  },
+  {
+    "uuid": "e2c01053-b92b-4bbc-92c4-382ded270570",
+    "name": "Dedetizador(a)"
+  },
+  {
+    "uuid": "ba94c1c1-eda7-4130-bf38-a7b51704a5d2",
+    "name": "Dentista Canal"
+  },
+  {
+    "uuid": "620b3858-fdf3-412e-b567-3347d4ea1ad3",
+    "name": "Dentista Cáries"
+  },
+  {
+    "uuid": "206e0000-044a-454b-b75e-b285aab67b37",
+    "name": "Dentista Implante"
+  },
+  {
+    "uuid": "78113891-93c9-493e-8153-af79c2bb8932",
+    "name": "Dentista pra Crianças"
+  },
+  {
+    "uuid": "023877a3-f363-4d4f-a7cb-4bcd808d9134",
+    "name": "Dentista Correção Dentes aparelho"
+  },
+  {
+    "uuid": "83fdb7f8-3ebe-4a93-a048-14113ac32ad3",
+    "name": "Dentista Prótese"
+  },
+  {
+    "uuid": "a08b4329-477c-48c0-a9e6-706559ad9ba7",
+    "name": "Dentista Traumas e Cirurgias "
+  },
+  {
+    "uuid": "660cd8c7-eaa6-411d-91bf-05924823edc4",
+    "name": "Depiladora"
+  },
+  {
+    "uuid": "60c1b55c-aa49-4e05-8dd0-59595040ff52",
+    "name": "Desenvolvedor de Sites / Web"
+  },
+  {
+    "uuid": "1e1a1fff-3070-44ba-8d6f-64ad4878f460",
+    "name": "Desentupidor(a) "
+  },
+  {
+    "uuid": "f52f04ca-1109-4fa4-81f2-8b00e19e4ac1",
+    "name": "Designer Games "
+  },
+  {
+    "uuid": "9261d8e0-cc9c-4f1f-b7a7-3ae2647c3934",
+    "name": "Designer Gráfico"
+  },
+  {
+    "uuid": "bfe866f2-69cf-4c9c-9304-662d03c3312a",
+    "name": "Detetive    "
+  },
+  {
+    "uuid": "c568c486-8999-4d7c-a8b3-7b525b997876",
+    "name": "Despachante Veículos"
+  },
+  {
+    "uuid": "b1d35556-a3d4-462d-a548-189b78aa8ba3",
+    "name": "Diarista "
+  },
+  {
+    "uuid": "f7f857df-6106-4dea-a9d6-0ab17e28fdf7",
+    "name": "Digitador(a)"
+  },
+  {
+    "uuid": "64a9b894-d188-4063-8b66-02d0f15ee73b",
+    "name": "DJ"
+  },
+  {
+    "uuid": "3d266833-0855-48de-a27c-d0f9237630b2",
+    "name": "E-Commerce Especialista"
+  },
+  {
+    "uuid": "32c6bc37-6e63-4640-be8c-b76922f30f3b",
+    "name": "E-mail Marketing Especialista"
+  },
+  {
+    "uuid": "1a3ee0c4-e3f9-449a-9161-bc1f08e21892",
+    "name": "Editor(a) Imagens"
+  },
+  {
+    "uuid": "aa362344-46cd-4f7b-a92f-ddf41aac3538",
+    "name": "Editor(a) Vídeo"
+  },
+  {
+    "uuid": "c922d6a7-36b3-40a1-8d1a-4414b19c10c1",
+    "name": "Eletricista Ar Condicionado"
+  },
+  {
+    "uuid": "794a53a3-a23a-463c-98f1-2c686081812a",
+    "name": "Eletricista Residencial"
+  },
+  {
+    "uuid": "f72a62e7-9ea0-4dd1-b252-85fa0b303553",
+    "name": "Eletricista Veículo"
+  },
+  {
+    "uuid": "4f80b4fc-9381-4d5b-8f66-fd19e7fae488",
+    "name": "Eletricista Comercial / Industrial"
+  },
+  {
+    "uuid": "752b1166-576a-48c3-a49a-4f5cc7bd993f",
+    "name": "Encanador(a) Residencial"
+  },
+  {
+    "uuid": "8d339212-dcc6-4235-bc60-072d379c603a",
+    "name": "Encanador(a) Comercial / Industrial"
+  },
+  {
+    "uuid": "adddf07e-d1d7-493d-aa04-4baceb45af85",
+    "name": "Enfermeiro(a)"
+  },
+  {
+    "uuid": "10003495-1aee-4c5c-bb22-f2db99f0f278",
+    "name": "Engenheiro(a) Agrônomo"
+  },
+  {
+    "uuid": "4f27e7bc-f965-405c-8381-a9086380b3d3",
+    "name": "Engenheiro(a) Ambiental"
+  },
+  {
+    "uuid": "03289743-251a-4ee0-9845-0e2a30929817",
+    "name": "Engenheiro(a) Civil"
+  },
+  {
+    "uuid": "0795360b-0a47-4434-ba9b-609593d2bc18",
+    "name": "Engenheiro(a) Computação"
+  },
+  {
+    "uuid": "3e78bac7-113c-48f8-a0c1-7a325de6b60e",
+    "name": "Engenheiro(a) Manutenção Predial"
+  },
+  {
+    "uuid": "079bbe37-b40c-4355-8bf8-51e74e2353f6",
+    "name": "Engenheiro(a) Produção"
+  },
+  {
+    "uuid": "040e97b4-cdd9-4f1c-8e7e-d6dd6a0baf61",
+    "name": "Engenheiro(a) Produto"
+  },
+  {
+    "uuid": "19abee53-ae95-48c1-a94f-9511c0fbedb4",
+    "name": "Engenheiro(a) Projetos"
+  },
+  {
+    "uuid": "c27463df-d277-4ff4-8501-61f8dbcd13d7",
+    "name": "Engenheiro(a) Segurança do Trabalho"
+  },
+  {
+    "uuid": "8905a5f1-3440-4c6d-9547-236aacbe3eb6",
+    "name": "Engenheiro(a) Sistemas"
+  },
+  {
+    "uuid": "87e34922-5e38-451f-bebe-71a590b188b4",
+    "name": "Engenheiro(a) Software"
+  },
+  {
+    "uuid": "6aa5b000-448c-4e74-8c40-ba1334a44333",
+    "name": "Engenheiro(a) Telecomunicações"
+  },
+  {
+    "uuid": "2eeb7132-c574-4d07-a14c-99eab34958d1",
+    "name": "Engenheiro(a) Eletricista"
+  },
+  {
+    "uuid": "e77c920f-cf93-4b74-98eb-8bdca0d31dd1",
+    "name": "Engenheiro(a) Eletroeletrônico"
+  },
+  {
+    "uuid": "1cca7f03-1e7e-488b-a7b6-8c6de92de858",
+    "name": "Engenheiro(a) Eletrônico"
+  },
+  {
+    "uuid": "ccd0dfed-3858-48ad-8eab-6d7c70316d5e",
+    "name": "Engenheiro(a) Florestal"
+  },
+  {
+    "uuid": "8c847b75-2175-438e-a205-1ecb1094ab3f",
+    "name": "Engenheiro(a) Hidráulico"
+  },
+  {
+    "uuid": "e97bd0f9-0802-45a0-9df8-8fd297b50b6c",
+    "name": "Engenheiro(a) Hídrico"
+  },
+  {
+    "uuid": "e896455c-08aa-458a-9e1f-9d31164462de",
+    "name": "Engenheiro(a) Industrial"
+  },
+  {
+    "uuid": "21418237-a5a4-4264-85b1-cf72dcc4d4a2",
+    "name": "Engenheiro(a) Mecânico"
+  },
+  {
+    "uuid": "1800d4d3-6ee4-4c53-b46e-2cc6a76597ef",
+    "name": "Engenheiro(a) Metalúrgico"
+  },
+  {
+    "uuid": "84ba9569-485f-40ef-ab7e-49b78e84b115",
+    "name": "Engenheiro(a) Químico"
+  },
+  {
+    "uuid": "4af98565-2840-4456-ad51-9a920a391f0a",
+    "name": "Entregador(a) Panfletos"
+  },
+  {
+    "uuid": "54827b12-4c25-4505-8bb2-c1697bfec495",
+    "name": "Esteticista"
+  },
+  {
+    "uuid": "141780fd-f377-4211-847e-8075c41b4c61",
+    "name": "Estilista Moda Infantil"
+  },
+  {
+    "uuid": "183881cb-3c33-43bb-b517-85f6475b4c6d",
+    "name": "Estilista Moda Juvenil"
+  },
+  {
+    "uuid": "4832f3a1-53eb-4dcc-87e1-858d3bb724ce",
+    "name": "Estilista Moda Adulta "
+  },
+  {
+    "uuid": "6555889f-0adb-41d4-9716-1bf859f4ed80",
+    "name": "Filmagem Festas Eventos"
+  },
+  {
+    "uuid": "6560aa6b-4274-435b-8b98-1bc82e467192",
+    "name": "Fisioterapeuta "
+  },
+  {
+    "uuid": "e18d054a-1080-4e07-8366-f184eae12240",
+    "name": "Fonoaudiólogo(a)"
+  },
+  {
+    "uuid": "11bfcf33-b505-4e7d-a748-9a19b591afd9",
+    "name": "Fotógrafo(a)"
+  },
+  {
+    "uuid": "e537713b-fd72-4013-bf0b-c2bad5a9b30f",
+    "name": "Funileiro Veículos"
+  },
+  {
+    "uuid": "e2927076-9d40-4aa6-9dec-1e64e6e2d2c4",
+    "name": "Gemólogo(a) "
+  },
+  {
+    "uuid": "281f1636-b6aa-4aa2-8346-7ecc9ebb9b76",
+    "name": "Gesseiro(a)"
+  },
+  {
+    "uuid": "6cbe42b0-79b7-457d-994e-29953295a4c5",
+    "name": "Guia Turístico"
+  },
+  {
+    "uuid": "31b6c404-dd5b-458d-b51c-4ca10b060a77",
+    "name": "Historiador(a)"
+  },
+  {
+    "uuid": "e18be379-5599-463c-b62e-963b75f5303d",
+    "name": "Impermeabilizador de Sofás e Poltronas"
+  },
+  {
+    "uuid": "893557b9-7792-4bbd-b237-c65c0cba7728",
+    "name": "Instalador(a) Placa Publicidade"
+  },
+  {
+    "uuid": "ea25000c-e6b7-4ff2-9c14-b9e72f4781dc",
+    "name": "Instalador(a) Toldo "
+  },
+  {
+    "uuid": "a4899b96-ae82-4644-95af-1678ad485f31",
+    "name": "Jardineiro(a)"
+  },
+  {
+    "uuid": "59ec9d61-a6af-4452-984b-26d9d7de380f",
+    "name": "Jornalista"
+  },
+  {
+    "uuid": "f54b8da7-9b19-4230-9d20-3596d56921cf",
+    "name": "Lavador Sofás Poltronas "
+  },
+  {
+    "uuid": "00b22ac7-e74f-4243-a466-162ed21a2e27",
+    "name": "Limpador(a) Piscina"
+  },
+  {
+    "uuid": "624ddbee-b718-4ffa-a129-d3196f8c4c4c",
+    "name": "Mágico(a) "
+  },
+  {
+    "uuid": "689b33c5-8978-473d-9999-df81177c2a01",
+    "name": "Manicure"
+  },
+  {
+    "uuid": "afce0c27-f1e1-4585-bccb-9e7e299e57e7",
+    "name": "Maquiador(a)"
+  },
+  {
+    "uuid": "a73642b1-ccf9-4615-ba18-515b6275ae3f",
+    "name": "Marceneiro(a)"
+  },
+  {
+    "uuid": "fa1ef675-80d6-4d50-9a31-b7de9d6d1163",
+    "name": "Marketing Digital Especialista"
+  },
+  {
+    "uuid": "77c4aa27-5543-47a2-8ccc-53841062ea3a",
+    "name": "Marmorista"
+  },
+  {
+    "uuid": "1464730e-a75d-4b15-b6d6-9710472c1193",
+    "name": "Mecânico Veículos"
+  },
+  {
+    "uuid": "1fefe4f5-9e1b-494a-b4f0-d6cc7841d595",
+    "name": "Mecânico Motos"
+  },
+  {
+    "uuid": "f5b9c52d-fe06-4bc3-8afc-71879e4491f5",
+    "name": "Mestre de Obras"
+  },
+  {
+    "uuid": "991ca447-3dab-482b-a4ae-e400e022bb33",
+    "name": "Modelista Moda Infantil"
+  },
+  {
+    "uuid": "85c26a6e-27bc-4ad7-ad0d-46d77b2aa880",
+    "name": "Modelista Moda Juvenil"
+  },
+  {
+    "uuid": "cc13aa18-5d41-40ac-a601-a67160cd2e9c",
+    "name": "Modelista Moda Adulta "
+  },
+  {
+    "uuid": "83947e5f-a618-48b4-a6e2-d0f706e57259",
+    "name": "Montador Armários (móveis)"
+  },
+  {
+    "uuid": "cbd3c463-7fd2-4508-bf65-dfe3bf162d02",
+    "name": "Montador de Esquadrias (janelas e portas)"
+  },
+  {
+    "uuid": "f4053699-355a-4b63-967d-3e5cc6ec6312",
+    "name": "Motoboy"
+  },
+  {
+    "uuid": "b3ea4474-913c-4243-8d87-b14932f8f7e0",
+    "name": "Motorista Particular"
+  },
+  {
+    "uuid": "092af61b-cf8b-45b8-a515-fd48e9d7755e",
+    "name": "Motorista de Táxi"
+  },
+  {
+    "uuid": "334f45e5-9359-4aeb-ba45-58007ddcada8",
+    "name": "Motorista Aplicativos "
+  },
+  {
+    "uuid": "4c4ee495-f7b4-4f88-9461-d10d3a95adb0",
+    "name": "Músico "
+  },
+  {
+    "uuid": "8f4c789c-e561-4fd8-90fd-6c2c40777c50",
+    "name": "Nutricionista "
+  },
+  {
+    "uuid": "7b6af295-18cc-46f1-9042-19b4d8cb38f8",
+    "name": "Organizador(a) Festa Evento"
+  },
+  {
+    "uuid": "a6f1bb58-5300-4186-b1c0-0706057f61e2",
+    "name": "Paisagista"
+  },
+  {
+    "uuid": "03444fab-f454-4263-93f5-b3ec1dc0e073",
+    "name": "Pedicure"
+  },
+  {
+    "uuid": "8b1f265a-92b3-4741-a77a-bc56d8fe3567",
+    "name": "Pedreiro     "
+  },
+  {
+    "uuid": "1c8010e3-3d87-4f3a-8f31-587698060e03",
+    "name": "Personal Trainer  "
+  },
+  {
+    "uuid": "85ad29dc-0514-4331-8d8d-6dbb7836dffe",
+    "name": "Pintor Construção Civil"
+  },
+  {
+    "uuid": "3aca8743-0e1d-4d6e-b9c4-2811ab88b853",
+    "name": "Pintor Móveis"
+  },
+  {
+    "uuid": "af027e9d-3fd7-4b57-8764-563676e40eb5",
+    "name": "Pizzaiolo"
+  },
+  {
+    "uuid": "5a58abf3-ae9a-421b-9a14-22edf885d218",
+    "name": "Podólogo"
+  },
+  {
+    "uuid": "95b53d52-d747-4e9c-bf63-053fa03b0a7b",
+    "name": "Professor Particular Alemão"
+  },
+  {
+    "uuid": "4b03d740-1ad2-4daa-be8c-8d4de37876e0",
+    "name": "Professor Particular Árabe"
+  },
+  {
+    "uuid": "efa0cf5e-ee05-40ac-b992-87bda5b6ab7b",
+    "name": "Professor Particular Artes Marciais"
+  },
+  {
+    "uuid": "2de8e4f8-45ab-46ec-9c17-a378084c7e1b",
+    "name": "Professor Particular Artesanato"
+  },
+  {
+    "uuid": "1817d7f2-549a-4dbd-9381-1fe2074128d1",
+    "name": "Professor Particular Canto"
+  },
+  {
+    "uuid": "f1d47f19-ba0b-4fc7-815f-08af26998243",
+    "name": "Professor Particular Capoeira"
+  },
+  {
+    "uuid": "7a318579-44a0-4cb5-a49c-aad36479c11b",
+    "name": "Professor Particular Dança"
+  },
+  {
+    "uuid": "bdb05f64-bdfe-4f2a-bb03-d8d223258b79",
+    "name": "Professor Particular Espanhol"
+  },
+  {
+    "uuid": "8ac04415-ef6c-4fe5-9ede-f8646faa29df",
+    "name": "Professor Particular Física"
+  },
+  {
+    "uuid": "b529ada8-bd84-4abd-b928-1835dd0703d5",
+    "name": "Professor Particular Francês"
+  },
+  {
+    "uuid": "0a2d118c-84d2-41c5-beae-4994d62c6383",
+    "name": "Professor Particular Geografia"
+  },
+  {
+    "uuid": "678b4b41-634e-4ffb-a1cd-59b78bf18bc9",
+    "name": "Professor Particular História"
+  },
+  {
+    "uuid": "3ef4b5a9-e930-40ed-bd15-0f309b54116a",
+    "name": "Professor Particular Informática"
+  },
+  {
+    "uuid": "0c3d4f83-c1b3-4c77-9bbe-3632f7473dbc",
+    "name": "Professor Particular Inglês"
+  },
+  {
+    "uuid": "49cdb1cd-f80b-4164-8112-2277ea2355d6",
+    "name": "Professor Particular Português"
+  },
+  {
+    "uuid": "9c98b729-186b-4807-98a5-51b6aeea2906",
+    "name": "Professor Particular Português pra Estrangeiros"
+  },
+  {
+    "uuid": "02262834-d1e1-4f60-a394-433b29987d5d",
+    "name": "Professor Particular Italiano"
+  },
+  {
+    "uuid": "f5bb1cc2-585c-4e38-ba0b-a8bce5c31c41",
+    "name": "Professor Particular Japonês"
+  },
+  {
+    "uuid": "c48aee3f-4e1f-469a-9313-ba5ade4b3ec9",
+    "name": "Professor Particular Mandarim"
+  },
+  {
+    "uuid": "9e1825b5-99b4-48d6-b4ba-ecee93ec98bc",
+    "name": "Professor Particular Matemática"
+  },
+  {
+    "uuid": "0b07b701-b2db-4f86-9530-49037da21aab",
+    "name": "Professor Matemática Financeira"
+  },
+  {
+    "uuid": "e4f7d7e9-b23e-4c43-a7ee-28b5c45f92a8",
+    "name": "Professor Particular Musica "
+  },
+  {
+    "uuid": "ece72f13-f30f-47ce-b994-3331920f64ac",
+    "name": "Professor Particular Química"
+  },
+  {
+    "uuid": "7ea68759-fac4-4c24-8ec0-02519628d812",
+    "name": "Professor Particular Redação"
+  },
+  {
+    "uuid": "7101d7f2-4dc3-4d07-bc55-12f02748d52b",
+    "name": "Professor Particular Russo"
+  },
+  {
+    "uuid": "24965de6-96d8-436f-a661-3741f152c910",
+    "name": "Professor Teatro (artes cênicas)"
+  },
+  {
+    "uuid": "df38adf4-0f79-42db-8ffe-ec273786c9d0",
+    "name": "Professor Particular Tênis"
+  },
+  {
+    "uuid": "ca457ae0-b75d-4723-8337-ae384ae72131",
+    "name": "Professor Xadrez"
+  },
+  {
+    "uuid": "2598b2e6-f92d-412f-9b6f-51b36a55522a",
+    "name": "Professor Yoga"
+  },
+  {
+    "uuid": "da961f16-9f21-434f-886b-97f50e89caf9",
+    "name": "Projetista Construção e Reforma"
+  },
+  {
+    "uuid": "842326aa-8537-40b2-a0a0-ad5239983f09",
+    "name": "Projetista Elétrico"
+  },
+  {
+    "uuid": "db5a1fab-04df-4e62-a8ae-b2e9ea50eda6",
+    "name": "Projetista Hidráulica"
+  },
+  {
+    "uuid": "d0fe23c5-0f35-4b38-abbd-af51587e495e",
+    "name": "Programador"
+  },
+  {
+    "uuid": "9ee1fe4f-c629-463c-ad20-38e3a900ac35",
+    "name": "Programador Back-End"
+  },
+  {
+    "uuid": "d432fcf9-93a2-4e80-981f-c17625f7e8d7",
+    "name": "Programador Font-End"
+  },
+  {
+    "uuid": "9dba807b-ffb1-4c29-8e2a-f74b5c9113bd",
+    "name": "Programador .NET"
+  },
+  {
+    "uuid": "1ef327f0-5af7-44e7-bf71-934f4143bba8",
+    "name": "Programador Web"
+  },
+  {
+    "uuid": "79db3578-ebe7-4cc3-8ce6-c10278ff6a78",
+    "name": "Programador Java"
+  },
+  {
+    "uuid": "708727fe-b197-410d-aeac-2383928f8997",
+    "name": "Programador C"
+  },
+  {
+    "uuid": "38afa63f-1d3e-4b42-bb34-99fa7b723cf8",
+    "name": "Programador R"
+  },
+  {
+    "uuid": "d0edc9a6-6c72-4ff2-8533-4ec13eed1323",
+    "name": "Promotor(a) Evento"
+  },
+  {
+    "uuid": "74a34f45-caba-4d25-9489-1eedb3c33971",
+    "name": "Psicólogo "
+  },
+  {
+    "uuid": "42979586-fb13-4bfd-b9f7-28c9af93e380",
+    "name": "Psiquiatra "
+  },
+  {
+    "uuid": "4d5a4b54-1d1c-4715-a478-ea3b33d3410f",
+    "name": "Publicitário(a)"
+  },
+  {
+    "uuid": "2387ad32-386e-4b28-8000-96ce617934e7",
+    "name": "Químico"
+  },
+  {
+    "uuid": "83100bc8-c70d-4662-b503-ac82343d4e2d",
+    "name": "Recepcionista Feminina"
+  },
+  {
+    "uuid": "47e7f605-7fb5-47c6-b6df-b28bf1a2e9b2",
+    "name": "Recepcionista Masculino"
+  },
+  {
+    "uuid": "9eaac35a-855e-4480-9e68-71390273f2df",
+    "name": "Redes Sociais Especialista "
+  },
+  {
+    "uuid": "5b15f1dc-9513-4824-b9fb-0a747a742d6a",
+    "name": "Rebocador Veículo "
+  },
+  {
+    "uuid": "9f58b369-b78a-4d6d-99b1-56eb02997d17",
+    "name": "Relações Públicas"
+  },
+  {
+    "uuid": "f9958810-a191-4e02-a1d3-b21d8572d282",
+    "name": "Restaurador(a) Móveis"
+  },
+  {
+    "uuid": "aee214ce-9db5-4639-b427-6b0822d77066",
+    "name": "Restaurador(a) Arte (quadro, moldura, pintura)"
+  },
+  {
+    "uuid": "9e8ecd53-df85-4f41-a4e5-3c0885b30759",
+    "name": "Restaurador(a) Fotografia"
+  },
+  {
+    "uuid": "82d4633a-93d6-4754-ae90-5ebaed8cf61a",
+    "name": "Revisor(a) de Texto"
+  },
+  {
+    "uuid": "3d33e2d2-9f96-4609-bb4a-56d1ae843950",
+    "name": "Salgadeiro(a) Salgados em geral"
+  },
+  {
+    "uuid": "96bf0741-d95b-4396-85b0-c16304f9a070",
+    "name": "Sapateiro conserto"
+  },
+  {
+    "uuid": "fa1067a8-f944-43e9-813a-65d853527016",
+    "name": "Sapateiro sob medida"
+  },
+  {
+    "uuid": "fbecf17d-32c2-4a6c-9968-1c88c763a61f",
+    "name": "Secretário(a)"
+  },
+  {
+    "uuid": "ab0bad5c-3f66-4812-addc-f9020fe75b72",
+    "name": "Segurança pessoal / patrimonial"
+  },
+  {
+    "uuid": "e172d45d-800b-4ab0-81b8-215cfd9b21dd",
+    "name": "Serralheiro"
+  },
+  {
+    "uuid": "1b4d66ae-8739-468b-86b3-03b58b177986",
+    "name": "Síndico profissional "
+  },
+  {
+    "uuid": "ff3d1105-a9c3-4718-b99c-4158d8f38a3d",
+    "name": "Sushiman"
+  },
+  {
+    "uuid": "f554aa22-1d4b-4678-bf87-1fce7e81bf25",
+    "name": "Tapeceiro(a) Sofá"
+  },
+  {
+    "uuid": "5ac5dd6e-fb14-42bf-ace4-31d0baf89daf",
+    "name": "Tapeceiro(a) Cadeira Poltrona"
+  },
+  {
+    "uuid": "283a7837-5af3-4650-9cdb-bd2621f5ab8b",
+    "name": "Tapeceiro(a) Veículo"
+  },
+  {
+    "uuid": "758dc59a-96c5-46e3-a1e9-ce01afb28275",
+    "name": "Técnico(a) Manutenção Conserto Alarmes Residenciais"
+  },
+  {
+    "uuid": "1d7e635a-08b1-44f8-bd6e-bbaca64f5420",
+    "name": "Técnico(a) Manutenção Conserto Alarmes Comércio Indústria  "
+  },
+  {
+    "uuid": "13ffbfa6-db53-45d5-8366-097ebb750810",
+    "name": "Técnico(a) Manutenção Conserto Ar Condicionado"
+  },
+  {
+    "uuid": "4cdc374a-894b-44ac-b1c8-831c98adb45f",
+    "name": "Técnico(a) Manutenção Conserto Celular"
+  },
+  {
+    "uuid": "bb7a94ae-fd2b-4ad8-93ae-771827e5d8e5",
+    "name": "Técnico(a) Manutenção Conserto Computadores"
+  },
+  {
+    "uuid": "1261997b-87fa-465f-8764-c13a6408268c",
+    "name": "Técnico(a) Manutenção Conserto Geladeira"
+  },
+  {
+    "uuid": "853c93d0-bb6a-4fbd-96ef-6997120f403a",
+    "name": "Técnico(a) Manutenção Conserto Máquina Lavar Roupa"
+  },
+  {
+    "uuid": "7fcb4461-adf3-43eb-af2d-068d69fc1ffa",
+    "name": "Técnico(a) Manutenção Conserto Máquina Secar Roupa"
+  },
+  {
+    "uuid": "9c524916-1c22-4ea5-8cda-6be2319b7a2e",
+    "name": "Técnico(a) Manutenção Conserto Portão Eletrônico"
+  },
+  {
+    "uuid": "7182c0a7-ce74-4e37-814a-2bd1a05f262b",
+    "name": "Técnico(a) Manutenção Conserto Som Acessórios Automóveis"
+  },
+  {
+    "uuid": "58bd974b-74a3-409e-8078-99158e5774be",
+    "name": "Técnico(a) Manutenção Conserto Telefone"
+  },
+  {
+    "uuid": "96f4d5ca-d509-4ba6-b5c5-9fb519222a79",
+    "name": "Técnico(a) Manutenção Conserto TV"
+  },
+  {
+    "uuid": "7eac2296-ce16-44f6-a36c-387de12fbab5",
+    "name": "Técnico(a) Manutenção Conserto TV Antenas"
+  },
+  {
+    "uuid": "5236808d-541c-4602-a34b-b7ae5913e4a6",
+    "name": "Técnico(a) Manutenção Conserto TV a Cabo"
+  },
+  {
+    "uuid": "72789346-b6bf-4a71-b6bb-e94dcafa5c43",
+    "name": "Telhadista Residencial"
+  },
+  {
+    "uuid": "5c6717c9-df6d-4e4e-95ac-030e9c2335f0",
+    "name": "Telhadista Comercial / Industrial"
+  },
+  {
+    "uuid": "0155466f-d752-40a2-9b40-2228f9a11848",
+    "name": "Tosador(a) de animais"
+  },
+  {
+    "uuid": "01686509-750c-4992-9575-9a29c4f81b09",
+    "name": "Tradutor(a) Alemão"
+  },
+  {
+    "uuid": "fcc18361-1e6a-426e-9eb0-3386044d7ef0",
+    "name": "Tradutor(a) Árabe"
+  },
+  {
+    "uuid": "fe9d4686-5432-4b08-b71f-5201849dd043",
+    "name": "Tradutor(a) Chinês"
+  },
+  {
+    "uuid": "f617a72d-a56c-45b8-9624-7f7b4e0c549a",
+    "name": "Tradutor(a) Coreano"
+  },
+  {
+    "uuid": "6f7be852-dc4d-47bd-9be5-12303ad25ad8",
+    "name": "Tradutor(a) Espanhol"
+  },
+  {
+    "uuid": "f27a3da7-ff30-41ff-a8a4-9a6911dcc762",
+    "name": "Tradutor(a) Francês"
+  },
+  {
+    "uuid": "5b3ffec6-3f33-464b-a341-826ad1472b94",
+    "name": "Tradutor(a) Inglês"
+  },
+  {
+    "uuid": "d5103221-89de-41aa-acfa-97c98feba971",
+    "name": "Tradutor(a) Italiano"
+  },
+  {
+    "uuid": "d844f50b-c916-48b1-bbfc-d181683c1307",
+    "name": "Tradutor(a) Japonês"
+  },
+  {
+    "uuid": "6cebc4b0-7296-47a2-bb30-b570bad4b1ff",
+    "name": "Tradutor(a) Mandarim"
+  },
+  {
+    "uuid": "e245af2a-596b-4034-9d6b-7c5f650c2aac",
+    "name": "Tradutor(a) Português do Brasil"
+  },
+  {
+    "uuid": "bc08d664-dc4d-4e4d-bae1-d9f3620e9a79",
+    "name": "Tradutor(a) Português de Portugal "
+  },
+  {
+    "uuid": "90baa5f9-6591-4d4e-9206-e8b1aaf7a58c",
+    "name": "Tradutor(a) Russo "
+  },
+  {
+    "uuid": "1b3b1609-0b6e-4596-8317-4d2d4ec1aef5",
+    "name": "Tratador(a) Boi / Vaca"
+  },
+  {
+    "uuid": "aaa519c3-2920-4d3d-81a1-58f458a55b5b",
+    "name": "Tratador(a) Cachorro "
+  },
+  {
+    "uuid": "7ccaad90-27b6-43a3-9854-6a536d6fecbe",
+    "name": "Tratador(a) Cavalo "
+  },
+  {
+    "uuid": "c3147432-6f03-4fd1-9124-d5a2977ded9c",
+    "name": "Tratador(a) Frango"
+  },
+  {
+    "uuid": "30c392f0-7205-4b8d-b30a-ce742d4afc28",
+    "name": "Tratador(a) Suíno"
+  },
+  {
+    "uuid": "acd4bfa0-2860-4ba3-a503-21cbb65753e3",
+    "name": "Vendedor(a) "
+  },
+  {
+    "uuid": "a7190ecc-4e77-4b3c-ad0f-4f3ace77dac0",
+    "name": "Veterinário(a)"
+  },
+  {
+    "uuid": "b0509d7f-413a-4287-b68c-25ea35ff4c1b",
+    "name": "Vidraceiro(a)"
+  },
+  {
+    "uuid": "e91e0fd0-eb84-49a3-9c17-9071551747b8",
+    "name": "Vigilante"
+  },
+  {
+    "uuid": "23470ea2-d0da-4027-8c99-0e45fee4b1e4",
+    "name": "Vitrinista Loja"
+  },
+  {
+    "uuid": "682a6c05-78a1-463e-a43b-74172e63bec6",
+    "name": "Web Designer"
+  },
+  {
+    "uuid": "dd44eb55-af31-4d2f-9ac0-28e44be2d33e",
+    "name": "Webmaster"
+  },
+  {
+    "uuid": "2469b87b-ae9a-4e70-b23f-c5bb81c99c86",
+    "name": "Zelador(a)"
+  },
+  {
+    "uuid": "c41339ef-61b2-4441-b9e8-8604c4952ee1",
+    "name": "Zootecnista"
+  }
+]

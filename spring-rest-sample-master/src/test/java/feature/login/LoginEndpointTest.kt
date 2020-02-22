@@ -1,12 +1,10 @@
 package feature.login
 
 import com.mechanical.Application
-import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.impl.EventCassandraImpl
+import com.mechanical.cassandraRepository.WorkerSession
 import com.mechanical.cassandraRepository.impl.ManagerProcessImpl
 import com.mechanical.cassandraRepository.impl.ProcessMonitoringImpl
-import com.mechanical.cassandraRepository.repository.LawOfficeRepository
-import com.mechanical.cassandraRepository.repository.UserRepository
+import com.mechanical.cassandraRepository.repository.WorkerRepository
 import com.mechanical.endpoint.LoginEndpoint
 import com.mechanical.infix_utils.toJson
 import extensions.mockJson
@@ -34,7 +32,7 @@ open class LoginEndpointTest {
     private lateinit var mvc: MockMvc
 
     @MockBean
-    lateinit var userRepository: UserRepository
+    lateinit var workerRepository: WorkerRepository
 
     @MockBean
     lateinit var lawOfficeRepository: LawOfficeRepository
@@ -51,16 +49,16 @@ open class LoginEndpointTest {
 
     /**
      * When make the call "/loginapi" passing info to do login
-     * is needed search user by e-mail or CPF and return user when found
+     * is needed search workerSession by e-mail or CPF and return workerSession when found
      * with responde code 200
      */
     @Test
     fun whenUserCallLoginPassingLoginEntity_couldReturnUserAndResponseOK() {
-        val user = mockJson<User>("user.json")
-        val resultActions = doLogin(user, userRepository, mvc)
+        val user = mockJson<WorkerSession>("user.json")
+        val resultActions = doLogin(user, workerRepository, mvc)
         //.andExpect(jsonPath("$", hasSize(1)))
         //.andExpect(jsonPath("$[0].name", is(alex.getName())));
-                //.andExpect(jsonPath("$.user.toString()", `is`(user.user.toString())))
+                //.andExpect(jsonPath("$.workerSession.toString()", `is`(workerSession.workerSession.toString())))
 
         val result = resultActions.andReturn()
         assertEquals(result.response.contentAsString, user.toJson())
@@ -68,13 +66,13 @@ open class LoginEndpointTest {
 
     /**
      * When make the call "/loginapi" passing info to do login
-     * and user not found or return null, the server awsner to
+     * and workerSession not found or return null, the server awsner to
      * client unprocessable Entity
      */
     @Test
     fun whenUserCallLoginPassingLoginEntityIncorrect_couldReturnResponseError() {
         val newInstanceLoginEntity = newInstanceLoginEntity()
-        given(userRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(null)
+        given(workerRepository.findBycpf(newInstanceLoginEntity.emailOrCPF)).willReturn(null)
 
 
         mvc.perform(post("/loginapi")
@@ -83,33 +81,33 @@ open class LoginEndpointTest {
                 .andExpect(status().isUnprocessableEntity)
         //.andExpect(jsonPath("$", hasSize(1)))
         //.andExpect(jsonPath("$[0].name", is(alex.getName())));
-        //.andExpect(jsonPath("$.user.toString()", `is`(user.user.toString())))
+        //.andExpect(jsonPath("$.workerSession.toString()", `is`(workerSession.workerSession.toString())))
     }
 
     /**
      * When make the call "/loginapi" passing info to do login
-     * and user is found and authenticate, is possible now
+     * and workerSession is found and authenticate, is possible now
      * request /api/...
      */
     @Test
     fun whenUserDoLogin_isPossibleRequestPathApi() {
-        val user = mockJson<User>("user.json")
-        doLogin(user, userRepository, mvc)
+        val user = mockJson<WorkerSession>("user.json")
+        doLogin(user, workerRepository, mvc)
 
         TODO("ITS NOT WORKING")
     }
 
     /**
      * When make the call "/loginapi" passing info to do login
-     * and user is NOT found and not authenticate, is not possible
+     * and workerSession is NOT found and not authenticate, is not possible
      * request /api/...
      */
     @Test
     fun whenUserNotDidLogin_isNotPossibleRequestPathApi() {
-        val user = mockJson<User>("user.json")
-        doLogin(user, userRepository, mvc)
+        val user = mockJson<WorkerSession>("user.json")
+        doLogin(user, workerRepository, mvc)
 
-        mvc.perform(post("/api/user")
+        mvc.perform(post("/api/workerSession")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isForbidden)
     }

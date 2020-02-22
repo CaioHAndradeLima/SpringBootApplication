@@ -2,9 +2,8 @@ package aviador
 
 import com.mechanical.apiescavador.out.ProcessEscavadorModel
 import com.mechanical.apiescavador.out.AuthenticationEscavadorOut
-import com.mechanical.cassandraRepository.User
+import com.mechanical.cassandraRepository.WorkerSession
 import com.mechanical.cassandraRepository.extensions.cutSpaces
-import com.mechanical.cassandraRepository.model.LawOffice
 import com.mechanical.infix_utils.toJson
 import extensions.getJson
 import extensions.mockJson
@@ -21,7 +20,7 @@ class EntityJsonTest {
 
     @Test
     fun validateJsonModel() {
-        validateEntity(PairMutable<String, User?>("user.json"))
+        validateEntity(PairMutable<String, WorkerSession?>("user.json"))
         validateEntity(PairMutable<String,LawOffice?>("lawOffice.json"))
     }
 

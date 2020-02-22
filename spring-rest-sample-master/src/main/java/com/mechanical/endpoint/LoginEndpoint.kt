@@ -2,8 +2,8 @@ package com.mechanical.endpoint
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.mechanical.cassandraRepository.User
-import com.mechanical.cassandraRepository.impl.UserImpl
+import com.mechanical.cassandraRepository.WorkerSession
+import com.mechanical.cassandraRepository.impl.WorkerImpl
 import com.mechanical.security.AuthenticationToken
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
@@ -24,15 +24,15 @@ import javax.validation.constraints.NotNull
 class LoginEndpoint {
 
     @Autowired
-    lateinit var userImpl: UserImpl
+    lateinit var workerImpl: WorkerImpl
 
     @PostMapping
     fun login(request: HttpServletRequest, @RequestBody loginEntity: LoginEntity): ResponseEntity<*> {
 
-        val user = userImpl.getAllUser(loginEntity)
+        val user = workerImpl.getAllUser(loginEntity)
                 ?: return ResponseEntity<Any>(HttpStatus.UNPROCESSABLE_ENTITY)
 
-        loginEntity.user = user
+        loginEntity.workerSession = user
 
         val auth = AuthenticationToken(loginEntity)
         auth.isAuthenticated = true
@@ -47,9 +47,9 @@ class LoginEndpoint {
 
     @PostMapping("register")
     fun registerAccount(@RequestBody requestEncrypted: String) : ResponseEntity<*> {
-        return managerRequest<User,Any>(requestEncrypted) { it, user ->
+        return managerRequest<WorkerSession,Any>(requestEncrypted) { it, user ->
 
-            val isSalved = userImpl.saveUser(it!!)
+            val isSalved = workerImpl.saveUser(it!!)
 
             if(!isSalved) {
                 return@managerRequest Pair(ResponseEntity.status(HttpStatus.CONFLICT), null)
@@ -58,19 +58,13 @@ class LoginEndpoint {
             return@managerRequest Pair(ResponseEntity.status(HttpStatus.CREATED), null)
         }
     }
-
-    companion object {
-        @Bean
-        private fun getUserImplementation() = UserImpl()
-    }
-
 }
 
 data class LoginEntity(@SerializedName("emailOrCPF") @NotNull @NotEmpty var emailOrCPF: String,
                        @SerializedName("password") @NotNull @NotEmpty var password: String,
                        @SerializedName("macAddress") @NotNull @NotEmpty var macAddress: String,
                        @SerializedName("keyOfRequests") @NotNull @NotEmpty var keyOfRequests: String) {
-    @Expose(serialize = false,deserialize = false) lateinit var user: User
+    @Expose(serialize = false,deserialize = false) lateinit var workerSession: WorkerSession
 }
 
 data class Data(var secretCode: String)
