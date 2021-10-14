@@ -1,9 +1,14 @@
 group 'mechanical.zia.sample'
 version '1.0-SNAPSHOT'
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'spring-boot'
+
 
 buildscript {
     ext.kotlin_version = '1.3.11'
     ext.spring_plugin_version = '1.5.2.RELEASE'
+
 
     repositories {
         mavenCentral()
@@ -15,9 +20,10 @@ buildscript {
     }
 }
 
-apply plugin: 'java'
-apply plugin: 'kotlin'
-apply plugin: 'spring-boot'
+springBoot {
+    mainClass = 'com.techsystem.Application'
+}
+
 
 sourceCompatibility = 1.8
 
@@ -39,6 +45,7 @@ dependencies {
     compile 'com.squareup.retrofit2:retrofit:2.4.0'
     compile 'com.squareup.retrofit2:converter-gson:2.3.0'
     compile 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    compile ('org.slf4j:slf4j-api:1.7.32')
 
     compile ('org.web3j:core:4.8.6')
 
