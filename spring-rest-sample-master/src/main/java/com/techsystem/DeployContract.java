@@ -22,6 +22,6 @@ public class DeployContract {
                 new StaticGasProvider(GAS_PRICE, GAS_LIMIT)
         ).send();
 
-        System.out.println("hash:" + send.getContractAddress());
+        System.out.println("hashContract:" + send.getContractAddress());
     }
 }

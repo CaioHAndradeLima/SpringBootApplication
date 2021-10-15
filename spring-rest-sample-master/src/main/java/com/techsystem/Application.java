@@ -32,6 +32,10 @@ public class Application {
             if(args == null || args.length == 0) {
                 System.out.println("servidor sem argumentos!");
             } else {
+                if(args[0].equals("create")) {
+                    DeployContract.main(args);
+                    return;
+                }
 
                 Web3j web3j = Web3j.build(new HttpService("http://localhost:30303"));
 
