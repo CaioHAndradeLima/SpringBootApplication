@@ -1,5 +1,6 @@
 package com.techsystem.endpoint
 
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 import com.techsystem.Application
 import org.springframework.http.HttpStatus
@@ -20,7 +21,9 @@ class TransactionEndpoint {
     }
 
     @PostMapping
-    fun sendTransaction(@RequestBody transaction: Transaction): ResponseEntity<String> {
+    fun sendTransaction(@RequestBody jsonTransaction: String): ResponseEntity<String> {
+
+        val transaction = Gson().fromJson(jsonTransaction, Transaction::class.java)
         val blockNumber = Application.transactionSmartContract.saveStruct(
                 transaction.hash,
                 transaction.value
