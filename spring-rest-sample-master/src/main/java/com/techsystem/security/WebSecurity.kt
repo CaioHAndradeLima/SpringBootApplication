@@ -1,5 +1,6 @@
 package com.techsystem.security
 
+import com.techsystem.request.UserSessionModel
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AbstractAuthenticationToken
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity
@@ -53,18 +54,21 @@ open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
     }
 }
 
-/*
-class AuthenticationToken(val authenticatedUser: LoginEntity) : AbstractAuthenticationToken(Arrays.asList<GrantedAuthority>()) {
 
+class AuthenticationToken(internal val authenticatedUser: UserSessionModel) : AbstractAuthenticationToken(Arrays.asList<GrantedAuthority>()) {
+
+    companion object {
+        private const val GIZMIN_PASSWORD = "FKSIFGJIWFIWJIRJWI9I"
+    }
     override fun getCredentials(): Any {
-        return authenticatedUser.password
+        //return authenticatedUser.password
+        return GIZMIN_PASSWORD
     }
 
     override fun getPrincipal(): Any {
         return authenticatedUser
     }
 }
-*/
 
 class DemoAuthenticationFilter : OncePerRequestFilter() {
 
