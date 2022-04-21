@@ -15,8 +15,6 @@ class WalletEnpoint {
 
     @PostMapping
     fun createWallet(@RequestBody jsonCreateWallet: String): ResponseEntity<*> {
-
-
         return managerRequest<CreateWallet, CreateWalletAccount>(jsonCreateWallet) { createWallet ->
 
             val ecKeyPair = Keys.createEcKeyPair()
@@ -40,5 +38,7 @@ class WalletEnpoint {
 
 data class CreateWallet(@SerializedName("password") val password: String)
 data class CreateWalletAccount(
-        @SerializedName("account") val account: String
+        @SerializedName("publicKey") val publicKey: String,
+        @SerializedName("privateKey") val privateKey: String
+
 )
