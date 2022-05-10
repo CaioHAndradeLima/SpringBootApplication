@@ -11,7 +11,7 @@ import org.web3j.crypto.Wallet
 
 @RestController
 @RequestMapping("wallet")
-class WalletEnpoint {
+class WalletEndpoint {
 
     @PostMapping
     fun createWallet(@RequestBody jsonCreateWallet: String): ResponseEntity<*> {
@@ -30,7 +30,7 @@ class WalletEnpoint {
 
             Pair(
                     ResponseEntity.status(HttpStatus.OK),
-                    CreateWalletAccount(address)
+                    CreateWalletAccount(address, privateKey)
             )
         }
     }

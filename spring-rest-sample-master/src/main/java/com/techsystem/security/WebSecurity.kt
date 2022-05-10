@@ -20,37 +20,32 @@ import javax.servlet.http.HttpServletResponse
 @EnableGlobalMethodSecurity(securedEnabled = true)
 open class WebSecurityConfig : WebSecurityConfigurerAdapter() {
 
-    val usingSecurity = true
+    private val usingSecurity = true
 
     @Throws(Exception::class)
     override fun configure(http: HttpSecurity) {
-        //super.configure(http);
-        /* http.authorizeRequests()
-                .anyRequest()
-                .permitAll(); */
-
-
         var yourHttp = http
 
         if (usingSecurity) {
             yourHttp = http.csrf()
                     .disable()
         }
+
         val security = yourHttp.authorizeRequests()
 
         if (usingSecurity) {
-            security.antMatchers("/api/**").authenticated()
+            security.antMatchers("/login").permitAll()
+            security.antMatchers("/**").authenticated()
         }
-
-        security.anyRequest()
-                .permitAll()
 
         if (usingSecurity) {
             security.and()
-                    .addFilterBefore(DemoAuthenticationFilter(), BasicAuthenticationFilter::class.java)
+                    .addFilterBefore(
+                            DemoAuthenticationFilter(),
+                            BasicAuthenticationFilter::class.java
+                    )
 
         }
-
     }
 }
 
@@ -78,22 +73,6 @@ class DemoAuthenticationFilter : OncePerRequestFilter() {
 
         val xAuth = request.getHeader("X-Authorization")
 
-        // validate the value in xAuth
-        /*
-    if(isValid(xAuth) == false){
-        throw new SecurityException();
-    } */
-
-/*
-        // The token is 'valid' so magically get a user id from it
-        val id = getUserUUIDFromToken(xAuth)
-        // Create our Authentication and let Spring know about it
-        val auth = AuthenticationToken(id)
-        auth.isAuthenticated = true
-        SecurityContextHolder.getContext().authentication = auth
-        val session = request.getSession(true)
-        session.setAttribute(SPRING_SECURITY_CONTEXT_KEY, SecurityContextHolder.getContext())
-*/
         filterChain.doFilter(request, response)
     }
 

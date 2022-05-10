@@ -6,8 +6,12 @@ import org.web3j.tx.Transfer
 import org.web3j.utils.Convert
 import java.math.BigDecimal
 
-fun transfer(privateKeyWhoWillTransfer: String, publicKeyWhoWillReceiveTransfer: String, value: BigDecimal): TransferResponse {
-
+fun transfer(
+        privateKeyWhoWillTransfer: String,
+        publicKeyWhoWillReceiveTransfer: String,
+        value: BigDecimal,
+        unit: Convert.Unit
+): TransferResponse {
 
     try {
         val transfer = Transfer(web3j, provideTransactionManager(provideCredentialsFromPrivateKey(privateKeyWhoWillTransfer)))
@@ -15,7 +19,7 @@ fun transfer(privateKeyWhoWillTransfer: String, publicKeyWhoWillReceiveTransfer:
         val transactionReceipt = transfer.sendFunds(
                 publicKeyWhoWillReceiveTransfer,
                 value,
-                Convert.Unit.FINNEY,
+                unit,
                 GAS_PRICE,
                 GAS_LIMIT
         ).send()
@@ -28,5 +32,4 @@ fun transfer(privateKeyWhoWillTransfer: String, publicKeyWhoWillReceiveTransfer:
                 e.cause?.message.orEmpty()
         )
     }
-
 }
